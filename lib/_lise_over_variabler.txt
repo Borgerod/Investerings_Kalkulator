@@ -1,0 +1,190 @@
+//* ____ INPUT _________________________________________________________________________
+// ____ TEXT
+"StartSum"
+"Antall år"
+"Perioder *"
+"Dividende"
+"Tilleggsbidrag"
+
+_controller1
+_controller2
+_controller3
+_controller4
+_controller5
+
+//____ CHANGERS
+changePrincipleAmt
+changeTerms
+changeCompoundsPerYear
+changeAnnualRate
+changeMonthlyContribution
+
+// ____ VARIABLES
+principleAmt
+terms
+compoundsPerYear
+annualRate
+monthlyContribution
+
+
+// ____ CAPITALIZED
+PrincipleAmt
+Terms
+CompoundsPerYear
+AnnualRate
+MonthlyContribution
+
+
+// ____ VARIABLES CONTENT
+principleAmt          --> user input
+terms                 --> user input
+compoundsPerYear      --> user input
+annualRate            --> user input
+monthlyContribution   --> user input
+
+
+//* ____ SERIES _________________________________________________________________________
+
+// ____ VARIABLES
+startPrincipleList
+startBalanceList
+interestList
+interestAccruedList
+endPrincipleList
+endBalanceList
+
+// ____ SILENT
+_startPrincipleList
+_startBalanceList
+_interestList
+_interestAccruedList
+_endPrincipleList
+_endBalanceList
+
+
+
+
+
+
+//* ____ RESULTAT _________________________________________________________________________
+// ____ TEXT
+"Totale Tillegg"
+"StartSum"
+"SluttBalanse / SluttVerdi"
+"Totale Renter"
+"avkastning på investering (ROI)"
+"Annualisert avkastning på investering (ROI)"
+"TotalVekst"
+
+// ____ VARIABLES
+finalValue
+principleAmt
+totalContributions
+interestAccrued
+roi
+annualizedRoi
+totalGrowth
+
+
+// ____ SILENT
+_finalValue
+_principleAmt
+_totalContributions
+_interestAccrued
+_roi
+_annualizedRoi
+_totalGrowth
+
+
+// ___ VARIABLES CONTENT
+finalValue          --> 
+startPrinciple      --> 
+totalContributions  --> 
+interestAccrued     --> 
+roi                 --> 
+annualizedRoi       --> 
+totalGrowth         --> 
+
+
+//* ____ DATAFRAME _________________________________________________________________________
+
+// ____ TEXT
+"StartPrinsipp"
+"StartBalance"
+"rente"
+"Løpende rente"
+"SluttPrinsipp"
+"SluttBalanse"
+
+// ____ VARIABLES
+startPrinciple    
+startBalance
+interest
+interestAccrued
+endPrinciple
+endBalance
+
+// ____ SILENT
+_startPrinciple    
+_startBalance
+_interest
+_interestAccrued
+_endPrinciple
+_endBalance
+
+
+
+// ___ VARIABLES CONTENT
+startPrinciple  --> [principleAmt, principleAmt+monthlyContribution+]
+startBalance    --> [principleAmt, principleAmt+monthlyContribution]
+interest        --> [(annualRate*startBalance[i]), (annualRate*startBalance[i])]
+interestAccrued --> [(annualRate*startBalance[i])^1, (annualRate*startBalance[i])^2]
+endPrinciple    --> [principleAmt+monthlyContribution, principleAmt+monthlyContribution]
+endBalance      --> [(principleAmt+monthlyContribution+interest[i])]
+
+
+
+
+//* ____ GRAPH _________________________________________________________________________
+
+// _____ TEXT
+"Prinsipp"
+"Rente"
+"Balanse"
+
+// ____ VARIABLES
+balanceList
+principleList
+interestList
+
+// ___ VARIABLES CONTENT
+balanceList    --> [endBalance]
+principleList  --> [startPrinciple] --> (totalContributions + principleAmt)
+interestList   --> [interestAccrued]
+
+
+
+
+
+
+//* ____ PIECHART _________________________________________________________________________
+
+// ____ TEXT
+"StartSum"
+"Totale Tillegg"
+"Totale Renter"
+
+// ____ VARIABLES
+finalValue
+totalContributions
+interestAccrued
+
+// ___ VARIABLES CONTENT
+finalValue           --> = finalValue
+totalContributions   --> = totalContributions
+interestAccrued      --> = interestAccrued
+
+
+
+
+

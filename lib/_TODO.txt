@@ -1,0 +1,106 @@
+#! _________ PLANEN __________________________________________________________________________________________
+ [X]  #TODO Endre      -> {InputDisplay} til å displaye statene fra 'InputCalcProvider' istedet for 'InputProvider'
+ [X]  #TODO Endre      -> {StartButton}  til å  sende   statene fra 'InputProvider' til 'InputCalcProvider'
+ [X]  #TODO IKKE Endre -> InputForm skal IKKE ENDRES
+
+ [X]  #TODO Endre      -> {InputDisplay} til å {OutputDisplay}
+ [X]  #TODO Endre      -> {OutputDisplay} til å displaye statene fra 'OutputProvider' istedet for 'InputCalcProvider'
+ [X]  #TODO LEGG TIL   -> {ResultatCalculator} til å regne ut "Results" statene fra 'InputCalcProvider' og sende til 'OutputProvider'
+ [X]  #TODO LEGG TIL   -> {PieChartDisplay} til å displaye statene fra 'OutputProvider'
+
+ #*
+ [ ]  #TODO LEGG TIL   -> {DataFrameCalculator} til å regne ut "DataFrameResults" statene fra 'InputCalcProvider' og sende til 'DataFrameProvider'
+ [ ]  #TODO LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut av "DataFrameResults" til 'DataFrameProvider' og displaye det
+ [ ]  #TODO LEGG TIL   -> {LineChart} til å hente ut dataframet fra 'DataFrameProvider', velg ut de radene den trenger, lag LineChart og Display
+ [ ]  #TODO MAYBE      -> {LineChartCalculator} (Om dette blir lettere) til å hente ut dataframet fra 'DataFrameProvider', velg ut de radene den trenger og send videre til 'LineChartProvider'
+ [ ]  #TODO MAYBE      -> {LineChartDisplay} (Om dette blir lettere) til å hente ut data fra 'LineChartProvider', bygg LineChart og Display
+
+#* OPTIONAL FROM " #* ":
+[ ]  #TODO LEGG TIL   -> {SeriesCalculator} til å regne ut de "Kumulative seriene for parameterne" og sende noen av dem til 'LineChartProvider' og send alle til 'DataFrameProvider'
+[ ]  #TODO LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut i fra statene til 'DataFrameProvider' og display det
+[ ]  #TODO MAYBE      -> {LineChartDisplay} til å Lage en LineChart ut i fra statene til 'LineChartProvider' og display det
+#!                                 PS: Mulig det blir unødvendig mye styr men det er mulig jeg burde dele opp 
+#!                                     f.eks {DataFrameDisplay} -> {DataFrameCalculator} & {DataFrameDisplay}
+
+
+[ ]  #TODO LEGG TIL   -> {Theme} som skal velge mellom to themes "LightMode" og "DarkMode"
+[ ]  #TODO LEGG TIL   -> {ThemeProvider} [STATE] som skal være State for alle fargene som blir brukt. 
+[ ]  #TODO LEGG TIL   -> {DarkLightSwitch} [BUTTON_WIDGET] som skal endre på 'ThemeProvider' til å returnere Statene "LightModeTheme" eller "DarkModeTheme"
+#!                                         PS: Mulig dette må endres på..
+
+#*
+[ ]  #TODO LEGG TIL   -> {BeforeAfterProvider} [STATE] om skal være State for "Before" og "After"
+[ ]  #TODO LEGG TIL   -> {BeforeAfterSwitch}   [BUTTON_WIDGET] Knapp som setter state til 'BeforeAfterProvider' til "BeforeAfter"
+[ ]  #TODO Endre      -> {SeriesCalculator}    legg til en if funksjon i 'SeriesCalculator' som bestemmmer om "BeforeFormelen" eller "AfterFormelen" skal brukes
+[ ]  #TODO Endre      -> {ResultatCalculator}  legg til en if funksjon i 'ResultatCalculator' som bestemmmer om "BeforeFormelen" eller "AfterFormelen" skal brukes
+
+#* OPTIONAL FROM " #* ":
+[X]  #TODO Endre      -> {SeriesCalculator}     [CLASS] Del opp 'SeriesCalculator' til {SeriesCalculatorBefore} og {SeriesCalculatorAfter}
+#//[ ]  #TODO ENDRE      -> {ResultatCalculator}   [CLASS] Del opp 'ResultatCalculator' til {ResultatCalculatorBefore} og {ResultatCalculatorAfter}
+[X]  #TODO LEGG TIL   -> {BeforeAfterSwitch}    [CLASS] en if funksjon som bestemmer hvilken ut av 'SeriesCalculatorBefore' eller 'SeriesCalculatorAfter' skal brukes, etc..
+
+
+[ ] #TODO ENDRE       -> {InputForm}            Til å ikke raise en error når noe annet enn tall blir ført inn. 
+[ ] #TODO LEGG TIL    -> {IndexSwitch} [BUTTON] Knapp som bytter mellom Dataframe med enten "terms" som index eller "perioder"
+[ ] #TODO LEGG TIL    -> {BackToTop} [BUTTON]   knapp som tar deg tilbake til topp, kanskje en til som tar deg tilbake til toppen av dataframet. 
+[ ] #TODO ENDRE       -> {BackToTop} [BUTTON]   Gjerne sørg for at knappen er sticky til skjermen etter du passerer dataframet. 
+[ ] #TODO ENDRE       -> {LineChartDisplay}     Interest line viser feil. 
+[ ] #TODO ENDRE       -> {LineChartDisplay}     Endre på Y-aksen til å ikke vise det øverste tallet, eller få den til å skalere seg jevnt.  
+[ ] #TODO ENDRE       -> {LineChartDisplay}     få "on-hover-skiltet" til å displaye utenfor grafens containter.  
+[ ] #TODO ENDRE       -> {DataFrameDisplay}     Få Kolonnefeltet til å være sticky. 
+[ ] #TODO ENDRE       -> {DataFrameDisplay}     Endre på paddingen til dataframet slik at indexen vises etter 2 siffere. 
+[ ] #TODO ENDRE       -> {DataFrameDisplay}     Fiks på formelene til [BEFORE]
+[ ] #TODO Legg TIL    -> {DataFrameDisplay}     Legg til "termin" i index colonnen i dataframet. 
+[ ] #TODO Legg TIL    -> {DataFrameDisplay}     For "monthly" section iht "IndexSwitch" sett opp et skilt per 12 måned, som sier hvilket år det er.
+[ ] #TODO ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
+[ ] #TODO ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
+[ ] #TODO ENDRE       -> {InputForm}            Legg til nummer formattering 
+#! ___________________________________________________________________________________________________________
+
+
+# ____ OLD ________________________________________________________________________________
+    {InputForm}       -data->   'InputProvider'
+    #//{StartButton}     -data->   'InputProvider'
+    'InputProvider'   -data->   {InputDisplay} 
+
+# ____ CURRENTLY __________________________________________________________________________
+    {InputForm}                              -data->   'InputProvider'
+    {StartButton}        => 'InputProvider'  -data->   'InputCalcProvider'
+    {InputDisplay}                           <-data-   'InputCalcProvider' #{outputdisplay}
+    #// 'InputCalcProvider'                      -data->   {InputDisplay} #{outputdisplay}
+
+# ____ FUTURE _____________________________________________________________________________
+    {InputForm}                               -data->   'InputProvider'
+    {StartButton}        => 'InputProvider'   -data->   'InputCalcProvider'
+    {ResultatCalculator}                     <-data-    'InputCalcProvider' 
+    {ResultatCalculator}                      -data->   'OutputProvider' 
+    {PieChartDisplay}                        <-data-    'OutputProvider'
+    {OutputDisplay}                          <-data-    'OutputProvider' 
+    {SeriesCalculator}                       <-data-    'OutputProvider' 
+    {SeriesCalculator}                        -data->   'DataFrameProvider' & 'LineChartProvider'
+    {DataFrameDisplay}                       <-data-    'DataFrameProvider' 
+    {LineChartDisplay}                       <-data-    'LineChartProvider' 
+
+    #// 'InputCalcProvider'                      -data->   {InputDisplay} #{outputdisplay}
+
+
+
+
+
+
+BOILER PLATE CODE FOR STATE CALLS:
+
+CHANGE state:
+    As String:
+    (val) => 
+    context.read<InputProvider>().changeTerms(double.parse(val.toString())),
+
+    As Double:
+    (val) => 
+    context.read<InputProvider>().changeTerms(val),
+
+READ state:
+    As String:
+    context.watch<InputCalcProvider>().monthlyContribution.toString()
+
+    As Double:
