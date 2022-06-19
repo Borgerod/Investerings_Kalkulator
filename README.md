@@ -135,3 +135,4 @@ ________________________________________________________________________________
   - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
   - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
   - [ ]  LEGG TIL    -> {googleAd}             Legg til en google ad som er ankret til bunnen av skjermen. 
+  - [ ]  ENDRE       -> {ShadowBox}            Ton ned på dropshadow, det ser litt mye kontrast  
