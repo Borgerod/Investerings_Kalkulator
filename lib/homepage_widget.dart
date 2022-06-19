@@ -59,9 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(height: 30),
                 InputForm(),
                 // SizedBox(height: 30),
-                BeforAfterSwitch(),
-                SizedBox(height: 30),
-                StartButton(),
+                ButtonContainer(),
+                // BeforAfterSwitch(),
+                // SizedBox(height: 30),
+                // StartButton(),
                 SizedBox(height: 30),
                 // AdBanner(),
                 // Text("_________RESULTAT_________",
@@ -273,7 +274,36 @@ da være 12 perioder.''')),
   }
 }
 
-//* ___________ BEFORE/AFTER SWITCH ______________________________________________
+//* ___________ BUTTON CONTAINER _______________________________________________
+class ButtonContainer extends StatefulWidget {
+  const ButtonContainer({Key key}) : super(key: key);
+  @override
+  State<ButtonContainer> createState() => _ButtonContainerState();
+}
+
+class _ButtonContainerState extends State<ButtonContainer> {
+  int groupValue = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+          color: colorWhite,
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
+        margin: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          children: [
+            BeforAfterSwitch(),
+            SizedBox(height: 20),
+            StartButton(),
+          ],
+        ));
+  }
+}
+
+//* ___________ BEFORE/AFTER SWITCH ____________________________________________
 class BeforAfterSwitch extends StatefulWidget {
   const BeforAfterSwitch({Key key}) : super(key: key);
   @override
@@ -285,7 +315,7 @@ class _BeforAfterSwitchState extends State<BeforAfterSwitch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 15),
+        // margin: EdgeInsets.symmetric(horizontal: 15),
         // padding: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           // boxShadow: customBoxShadow(),
@@ -305,8 +335,6 @@ class _BeforAfterSwitchState extends State<BeforAfterSwitch> {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: CupertinoSlidingSegmentedControl<int>(
-                // backgroundColor: CupertinoColors.lightBackgroundGray,
-                // thumbColor: CupertinoColors.white,
                 backgroundColor: colorLightBackgroundGray,
                 thumbColor: colorWhite,
                 padding: EdgeInsets.all(2),
@@ -321,7 +349,6 @@ class _BeforAfterSwitchState extends State<BeforAfterSwitch> {
                       .setButtonState(groupValue);
                   setState(() {
                     groupValue = value;
-                    // print(groupValue);
                   });
                 },
               ),
@@ -379,161 +406,6 @@ class _StartButtonState extends State<StartButton> {
   }
 }
 
-//* ___________ OUTPUT DISPLAY _________________________________________________
-// class OutputDisplay extends StatefulWidget {
-//   const OutputDisplay({Key key}) : super(key: key);
-//   @override
-//   State<OutputDisplay> createState() => _OutputDisplayState();
-// }
-
-// class _OutputDisplayState extends State<OutputDisplay> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Container(
-//         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-//         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(10),
-//           color: colorDarkGreen,
-//           boxShadow: [
-//             BoxShadow(
-//               color: const Color.fromARGB(17, 0, 0, 0).withOpacity(0.5),
-//               spreadRadius: 1,
-//               blurRadius: 4,
-//               offset: const Offset(0, 2), // changes position of shadow
-//             ),
-//           ],
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text('finalValue:               kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('principleAmt:          kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('totalContributions: kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('interestAccrued:     kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('roi:                             % ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('annualizedRoi:        % ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('totalGrowth:             % ',
-//                     style: TextStyle(color: colorTextblack)),
-//               ],
-//             ),
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(context.watch<OutputProvider>().finalValue.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(context.watch<OutputProvider>().principleAmt.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(
-//                     context
-//                         .watch<OutputProvider>()
-//                         .totalContributions
-//                         .toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(context.watch<OutputProvider>().interestAccrued.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(context.watch<OutputProvider>().roi.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(context.watch<OutputProvider>().annualizedRoi.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(context.watch<OutputProvider>().totalGrowth.toString(),
-//                     style: TextStyle(color: colorTextblack)),
-//               ],
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-
-//     ;
-//   }
-// }
-
-//* ___________ TEMPORARY DISPLAY ______________________________________________
-// class InputDisplay extends StatefulWidget {
-//   const InputDisplay({Key? key}) : super(key: key);
-//   @override
-//   State<InputDisplay> createState() => _InputDisplayState();
-// }
-
-// class _InputDisplayState extends State<InputDisplay> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Text(context.watch<InputCalcProvider>().principleAmt.toString()),
-//         Text(context.watch<InputCalcProvider>().terms.toString()),
-//         Text(context.watch<InputCalcProvider>().compoundsPerYear.toString()),
-//         Text(context.watch<InputCalcProvider>().annualRate.toString()),
-//         Text(context.watch<InputCalcProvider>().monthlyContribution.toString()),
-//       ],
-//     );
-//   }
-// }
-
-class SeriesCalculator {
-  seriesBuillder(BuildContext context) {
-    double principle = context.watch<InputCalcProvider>().principleAmt;
-    double timeDeltaInYears = context.watch<InputCalcProvider>().terms;
-    double periods = context.watch<InputCalcProvider>().compoundsPerYear;
-    double interestRate = context.watch<InputCalcProvider>().annualRate;
-    double additionalContributions =
-        context.watch<InputCalcProvider>().monthlyContribution;
-
-    double raisedtopower2 = (periods * timeDeltaInYears);
-    double dividend = interestRate / 100;
-
-    List<dynamic> _startPrincipleList = [];
-    List<dynamic> _startBalanceList = [];
-    List<dynamic> _interestList = [];
-    List<dynamic> _interestAccruedList = [];
-    List<dynamic> _endPrincipleList = [];
-    List<dynamic> _endBalanceList = [];
-    for (var i = 1; i < raisedtopower2 + 1; i++) {
-      double FV = (principle * pow((1 + dividend / periods), (i)) +
-          (additionalContributions) *
-              ((pow(1 + dividend / periods, i) - 1) / (dividend / periods)) *
-              (1 + dividend / periods));
-
-      _endBalanceList.add(FV);
-      _interestList.add(FV - additionalContributions - principle);
-      _interestAccruedList
-          .add(additionalContributions * i); //! WRONG CHECK _interestList
-      _startPrincipleList
-          .add(principle + (additionalContributions * i)); //! MULIG OPMVENDT
-      _endPrincipleList.add(
-          principle + (additionalContributions * (i + 1))); //! MULIG OPMVENDT
-    }
-
-    for (var i = 0; i < _endBalanceList.length - 1; i++) {
-      _startBalanceList.add(_endBalanceList[i]);
-    }
-    return [
-      context
-          .read<SeriesProvider>()
-          .appendStartPrincipleList(_startPrincipleList),
-      context.read<SeriesProvider>().appendStartBalanceList(_startBalanceList),
-      context.read<SeriesProvider>().appendInterestList(_interestList),
-      context
-          .read<SeriesProvider>()
-          .appendInterestAccruedList(_interestAccruedList),
-      context.read<SeriesProvider>().appendEndPrincipleList(_endPrincipleList),
-      context.read<SeriesProvider>().appendEndBalanceList(_endBalanceList),
-    ];
-  }
-}
-
 //* ___________ RESULT DISPLAY ______________________________________________
 class ResultDisplay extends StatefulWidget {
   const ResultDisplay({Key key}) : super(key: key);
@@ -554,78 +426,7 @@ class _ResultDisplayState extends State<ResultDisplay> {
 
     List resultList = GetResults().resultat(principle, timeDeltaInYears,
         periods, interestRate, additionalContributions, beforeAfterVal);
-//     return Center(
-//       child: Container(
-//         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-//         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(10),
-//           color: colorDarkGreen,
-//           boxShadow: [
-//             BoxShadow(
-//               color: const Color.fromARGB(17, 0, 0, 0).withOpacity(0.5),
-//               spreadRadius: 1,
-//               blurRadius: 4,
-//               offset: const Offset(0, 2), // changes position of shadow
-//             ),
-//           ],
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text('finalValue:               kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('principleAmt:          kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('totalContributions: kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('interestAccrued:     kr ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('roi:                             % ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('annualizedRoi:        % ',
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text('totalGrowth:             % ',
-//                     style: TextStyle(color: colorTextblack)),
-//               ],
-//             ),
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(resultList[0].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(resultList[1].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(resultList[2].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 // Text("___"),
-//                 Text(resultList[3].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(resultList[4].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(resultList[5].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 Text(resultList[6].toStringAsFixed(2),
-//                     style: TextStyle(color: colorTextblack)),
-//                 // Text('___________________'),
-//                 // Text(total.toString()),
-//                 // Text(((resultList[1] / total) * 100).toString()),
-//                 // Text(((resultList[2] / total) * 100).toString()),
-//                 // Text(((resultList[3] / total) * 100).toString()),
-//               ],
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
-// NEW RESULT DISPLAY
     return Padding(
         padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 15.0),
         child: Container(
@@ -648,65 +449,48 @@ class _ResultDisplayState extends State<ResultDisplay> {
                   decoration: BoxDecoration(
                       boxShadow: customBoxShadow(), color: colorAmber),
                   padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                  child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            // crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text('Slutt Balanse: ',
-                                  // textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20)),
-                              Spacer(),
-                              Text(' kr  ${resultList[0].toStringAsFixed(2)},-',
-                                  // textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20)),
-                            ]),
-                        Divider(height: 10),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('StartSum: ',
-                                          style:
-                                              TextStyle(color: colorTextblack)),
-                                      Text('Totale tilskudd: ',
-                                          style:
-                                              TextStyle(color: colorTextblack)),
-                                      Text('Total Dividende:',
-                                          style:
-                                              TextStyle(color: colorTextblack)),
-                                    ]),
-                                Spacer(),
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                          '${resultList[1].toStringAsFixed(2)},  ,-',
-                                          style:
-                                              TextStyle(color: colorTextblack)),
-                                      Text(
-                                          '${resultList[2].toStringAsFixed(2)},  ,-',
-                                          style:
-                                              TextStyle(color: colorTextblack)),
-                                      // Text("___"),
-                                      Text(
-                                          '${resultList[3].toStringAsFixed(2)},  ,-',
-                                          style:
-                                              TextStyle(color: colorTextblack))
-                                    ])
-                              ]),
-                        )
-                      ])),
+                  child: Column(children: [
+                    Row(children: [
+                      Text('Slutt Balanse: ',
+                          style: TextStyle(color: Colors.white, fontSize: 20)),
+                      Spacer(),
+                      Text(' kr  ${resultList[0].toStringAsFixed(2)},-',
+                          style: TextStyle(color: Colors.white, fontSize: 20)),
+                    ]),
+                    Divider(height: 10),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('StartSum: ',
+                                      style: TextStyle(color: colorTextblack)),
+                                  Text('Totale tilskudd: ',
+                                      style: TextStyle(color: colorTextblack)),
+                                  Text('Total Dividende:',
+                                      style: TextStyle(color: colorTextblack)),
+                                ]),
+                            Spacer(),
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                      '${resultList[1].toStringAsFixed(2)},  ,-',
+                                      style: TextStyle(color: colorTextblack)),
+                                  Text(
+                                      '${resultList[2].toStringAsFixed(2)},  ,-',
+                                      style: TextStyle(color: colorTextblack)),
+                                  Text(
+                                      '${resultList[3].toStringAsFixed(2)},  ,-',
+                                      style: TextStyle(color: colorTextblack))
+                                ])
+                          ]),
+                    )
+                  ])),
               // FOOTER: TOTAL GROWTH %
               Center(
                   child: Container(
@@ -718,18 +502,13 @@ class _ResultDisplayState extends State<ResultDisplay> {
                           ),
                           margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                           padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                          // constraints:
-                          //     BoxConstraints.expand(height: 40, width: 50),
                           child: Container(
                             padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5.0),
                                 color: colorDarkGreen,
                                 boxShadow: customBoxShadow()),
-                            // padding: EdgeInsets.symmetric(horizontal: 10),
                             constraints: BoxConstraints.expand(),
-                            // child: Center(
                             child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
@@ -752,12 +531,10 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                               color: colorWhite, fontSize: 20),
                                         ),
                                       ]),
-                                  // SizedBox(height: 5),
                                   Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        // Spacer(),
                                         Text(
                                             '${resultList[5].toStringAsFixed(2)} %',
                                             textAlign: TextAlign.end,
@@ -861,16 +638,12 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
     return Container(
         margin: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
         padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0.0),
-        // margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
         decoration: BoxDecoration(
           color: colorSection,
           boxShadow: customBoxShadow(),
           borderRadius: BorderRadius.circular(8.0),
         ),
-        // height: 300,
         height: 282,
-        // color: colorSection,
-        // padding: EdgeInsets.all(10.0),
         child: Column(
           children: [
             Container(
@@ -881,7 +654,6 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                 borderRadius: BorderRadius.circular(5.0),
               ),
               child: Align(
-                // alignment: Alignment(-1, -1),
                 alignment: Alignment.topLeft,
                 child: Container(
                     padding: EdgeInsets.all(10),
@@ -889,96 +661,67 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                       'Oversikt',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: colorHeadline, fontSize: 30),
-                      // style: Theme.of(context).textTheme.headline4,
                     )),
               ),
             ),
-            Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      // padding: EdgeInsets.fromLTRB(00.0, 0.0, 00.0, 0.0),
-                      width: 110,
-                      height: 217,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: Column(children: [
-                          // Align(
-                          //   alignment: Alignment.centerLeft,
-                          //   child: Container(
-                          //     // padding: EdgeInsets.all(10),
-                          //     child: Text(
-                          //       'Legend:',
-                          //       style: TextStyle(
-                          //           color: colorDarkGreen, fontSize: 20),
-
-                          //       // style: Theme.of(context).textTheme.headline6,
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Tilleggsbidrag',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(color: colorTextblack),
-                              ),
-                              SizedBox(width: 10),
-                              indicator1,
-                            ],
+            Row(children: [
+              Container(
+                  width: 110,
+                  height: 217,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: Column(children: [
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Tilleggsbidrag',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(color: colorTextblack),
                           ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Dividende',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(color: colorTextblack),
-                              ),
-                              SizedBox(width: 10),
-                              indicator2,
-                              // indicator3
-                            ],
+                          SizedBox(width: 10),
+                          indicator1,
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Dividende',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(color: colorTextblack),
                           ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Startsum',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(color: colorTextblack),
-                              ),
-                              SizedBox(width: 10),
-                              indicator3,
-                            ],
+                          SizedBox(width: 10),
+                          indicator2,
+                          // indicator3
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Startsum',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(color: colorTextblack),
                           ),
-                        ]),
-                      )),
-                  Container(
-                    width: 180,
-                    height: 100,
-                    // padding: EdgeInsets.fromLTRB(0.0, 0, 10, 10),
-                    // margin: EdgeInsets.all(10.0),
-
-                    // margin: EdgeInsets.all(10),
-                    // padding: EdgeInsets.all(10),
-                    // color: colorGray,
-                    // child: Container(
-                    // width: 180,
-                    // height: 200,
-                    // padding: EdgeInsets.all(10),
-                    // margin: EdgeInsets.all(10),
-                    child: PieChart(PieChartData(
-                      centerSpaceRadius: 50,
-                      sections: getSections(),
-                    )),
-                    // ),
-                  ),
-                ]),
+                          SizedBox(width: 10),
+                          indicator3,
+                        ],
+                      ),
+                    ]),
+                  )),
+              Container(
+                width: 180,
+                height: 100,
+                child: PieChart(PieChartData(
+                  centerSpaceRadius: 50,
+                  sections: getSections(),
+                )),
+              ),
+            ]),
           ],
         ));
   }
@@ -997,11 +740,8 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
     double interestAccrued = resultList[3];
     double total = principleAmt + totalContributions + interestAccrued;
 
-    // List data = [
-    // List<PieChartSectionData> getSections() => [
     List<PieChartSectionData> data = [
       PieChartSectionData(
-        //  name: 'StartSum',
         color: colorDarkGreen,
         value: principleAmt / total,
         title: '${(((principleAmt / total) * 100).toStringAsFixed(1))}%',
@@ -1010,9 +750,7 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
         ),
       ),
       PieChartSectionData(
-        //  name: 'StartSum',
         color: colorAmber,
-        // color: Color.fromARGB(255, 104, 167, 227),
         value: totalContributions / total,
         title: '${(((totalContributions / total) * 100).toStringAsFixed(1))}%',
         titleStyle: TextStyle(
@@ -1020,7 +758,6 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
         ),
       ),
       PieChartSectionData(
-        //  name: 'StartSum',
         color: colorHazyGreen,
         value: interestAccrued / total,
         title: '${(((interestAccrued / total) * 100).toStringAsFixed(1))}%',
@@ -1080,7 +817,6 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
       child: Column(
         children: [
           Padding(
-            // padding: EdgeInsets.all(10.0),
             padding: EdgeInsets.fromLTRB(00.0, 0.0, 00.0, 0.0),
             child: Container(
               color: colorSection,
@@ -1099,18 +835,12 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
                     'Graf',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: colorHeadline, fontSize: 30),
-
-                    // style: Theme.of(context).textTheme.headline4,
                   )),
             ),
           ),
-          // Container(
-          //   height: 380,
-          // child:
           Padding(
             padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
             child: Container(
-              // padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
               padding: EdgeInsets.all(5),
               width: 340,
               height: 200,
@@ -1120,8 +850,6 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
                   LineChart(
                     LineChartData(
                       borderData: FlBorderData(show: false),
-                      // rangeAnnotations: RangeAnnotations(horizontalRangeAnnotations: []),
-                      // maxX: (endBalanceSeries.last*1.20),
                       maxY: (endBalanceSeries.last * 1.10),
                       baselineY: 1,
                       clipData: FlClipData(
@@ -1173,7 +901,6 @@ class GetRows {
       additionalContributions, beforeAfterVal) {
     double raisedtopower2 = (periods * timeDeltaInYears);
     double dividend = interestRate / 100;
-
     double extra = (1 + (dividend / periods));
 
     List startPrincipleAfter = [principle];
@@ -1295,7 +1022,6 @@ class _DataTableDisplayState extends State<DataTableDisplay> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            // TITLE: KONTANTSTRØM
             Container(
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
@@ -1307,20 +1033,14 @@ class _DataTableDisplayState extends State<DataTableDisplay> {
                 'Kontantstrøm',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: colorHeadline, fontSize: 30),
-                // style: Theme.of(context).textTheme.headline4,
               ),
             ),
           ]),
           SizedBox(height: 10),
           Container(
-            decoration: BoxDecoration(
-                // boxShadow: customBoxShadow(),
-                // color: colorDarkGreen,
-                // borderRadius: BorderRadius.circular(5.0),
-                ),
+            decoration: BoxDecoration(),
             child: BuildMap()._createDataTable(SeriesList),
           ),
-          // _createDataTable(),
         ],
       ),
     );
@@ -1345,7 +1065,6 @@ class BuildMap {
   // COLUMNS for DATATABLE
   List<DataColumn> _createColumns() {
     return [
-      // DataColumn(label: SizedBox()),
       DataColumn(
         label: SizedBox(
           width: 50,
@@ -1353,11 +1072,6 @@ class BuildMap {
             'termin',
             maxLines: 2,
             style: TextStyle(color: colorTextblack),
-
-            // style: TextStyle(
-
-            // ),
-            // overflow: TextOverflow.ellipsis,
           ),
         ),
       ),
@@ -1427,21 +1141,16 @@ class BuildMap {
                   width: 20,
                   child: Text(
                     results['index'].toStringAsFixed(0),
-                    // 'Start prinsipp',
                     style: TextStyle(color: colorTextblack),
                     textAlign: TextAlign.right,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ))),
-              // width: 10, //SET width
-              // child: Text(results['index'].toStringAsFixed(0)))),
-
               DataCell(Text(
                   results['startPrinciple'].toStringAsFixed(2) + ' kr',
                   style: TextStyle(color: colorTextblack))),
               DataCell(Text(results['startBalance'].toStringAsFixed(2) + ' kr',
                   style: TextStyle(color: colorTextblack))),
-              // NOTE: "interest" should probobly be in Kr..
               DataCell(Text(results['interest'].toStringAsFixed(2) + ' kr',
                   style: TextStyle(color: colorTextblack))),
               DataCell(Text(
@@ -1457,7 +1166,6 @@ class BuildMap {
 }
 
 class DataTableMapper {
-  // @override
   mapBuilder(SeriesList) {
     List<dynamic> startPrinciple = SeriesList[0];
     List<dynamic> startBalance = SeriesList[1];
@@ -1465,7 +1173,6 @@ class DataTableMapper {
     List<dynamic> interestAccrued = SeriesList[3];
     List<dynamic> endPrinciple = SeriesList[4];
     List<dynamic> endBalance = SeriesList[5];
-    // INDEX
     List index = [for (var i = 1; i <= startPrinciple.length; i++) i];
 
     // REORGANISERING AV DATA STRUKTUREN (COLUMN BASED LIST -> ROW BASED MAP/DICT):
@@ -1494,7 +1201,6 @@ class DataTableMapper {
       datatableList.add(datatableMap);
     }
     // RETURNING "DATA TABLE LIST" to --> "_createDataTable()"
-    // print(datatableList);
     return datatableList;
   }
 }
@@ -1600,8 +1306,8 @@ class AdBanner extends StatefulWidget {
 //     return Padding(
 //       padding: const EdgeInsets.all(10.0),
 //       child: Column(
-//         // width: MediaQuery.of(context).size.width,
-//         // height: MediaQuery.of(context).size.height * 1,
+//         width: MediaQuery.of(context).size.width,
+//         height: MediaQuery.of(context).size.height * 1,
 //         children: [
 //           FlutterFlowAdBanner(
 //             width: 320,
@@ -1660,3 +1366,42 @@ class _AdBannerState extends State<AdBanner> {
 //     );
 //   }
 // }
+
+class AdFooter extends StatefulWidget {
+  const AdFooter({Key key}) : super(key: key);
+
+  @override
+  _AdFooterState createState() => _AdFooterState();
+}
+
+class _AdFooterState extends State<AdFooter> {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      // alignment: AlignmentDirectional(0, 1.13),
+      alignment: AlignmentDirectional(0, 1.08),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 90,
+        decoration: BoxDecoration(
+          color: Color(0xA9C4C4C4),
+          shape: BoxShape.rectangle,
+        ),
+        alignment: AlignmentDirectional(0, 0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
+              child: FlutterFlowAdBanner(
+                width: 320,
+                height: 50,
+                showsTestAd: true,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

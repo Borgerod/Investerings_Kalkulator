@@ -42,47 +42,47 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       // backgroundColor: colorBackground,
-      body: ListView(
+      body: Stack(
         children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 170),
-                InputForm(),
-                SizedBox(height: 10),
-                BeforAfterSwitch(),
-                SizedBox(height: 30),
-                StartButton(),
-                SizedBox(height: 30),
-                FlutterFlowAdBanner(width: 336, height: 280, showsTestAd: true),
-                SizedBox(height: 30),
-                ResultDisplay(),
-                SizedBox(height: 30),
-                FlutterFlowAdBanner(width: 320, height: 100, showsTestAd: true),
-                SizedBox(height: 30),
-                PieChartDisplay(),
-                SizedBox(height: 30),
-                LineChartDisplay(),
-                SizedBox(height: 30),
-                FlutterFlowAdBanner(width: 320, height: 50, showsTestAd: true),
-                SizedBox(height: 30),
-                DataTableDisplay(),
-                SizedBox(height: 30),
-                FlutterFlowAdBanner(width: 320, height: 50, showsTestAd: true),
-                SizedBox(height: 30),
-              ],
-            ),
+          ListView(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 170),
+                    InputForm(),
+                    SizedBox(height: 15),
+                    ButtonContainer(),
+                    SizedBox(height: 30),
+                    FlutterFlowAdBanner(
+                        width: 336, height: 280, showsTestAd: true),
+                    SizedBox(height: 30),
+                    ResultDisplay(),
+                    SizedBox(height: 30),
+                    FlutterFlowAdBanner(
+                        width: 320, height: 100, showsTestAd: true),
+                    SizedBox(height: 30),
+                    PieChartDisplay(),
+                    SizedBox(height: 30),
+                    LineChartDisplay(),
+                    SizedBox(height: 30),
+                    FlutterFlowAdBanner(
+                        width: 320, height: 50, showsTestAd: true),
+                    SizedBox(height: 30),
+                    DataTableDisplay(),
+                    SizedBox(height: 30),
+                    FlutterFlowAdBanner(
+                        width: 320, height: 100, showsTestAd: true),
+                    SizedBox(height: 100),
+                  ],
+                ),
+              ),
+            ],
           ),
+          AdFooter(),
         ],
       ),
-      bottomNavigationBar: _isAdLoaded
-          ? Container(
-              height: _bannerAd.size.height.toDouble(),
-              width: _bannerAd.size.width.toDouble(),
-              child: AdWidget(ad: _bannerAd),
-            )
-          : SizedBox(),
     );
   }
 }

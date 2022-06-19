@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "state_management",
+            "request": "launch",
+            "type": "dart",
+            //// "program":"C:/Users/aleksander/OneDrive/Python/Personlige Prosjekter/iOS apps/Investerings_kalkulator/flutter (frontend)/linechart/New folder/state_management/lib/main.dart",          
+            //// "program":"C:/Users/Big Daddy B/OneDrive/Python/Personlige Prosjekter/iOS apps/Investerings_kalkulator/flutter (frontend)/linechart/New folder/state_management/lib/main.dart",          
+            // "program":"C:/Users/aleksander/OneDrive/Python/Personlige Prosjekter/iOS apps/Investerings_kalkulator/flutter (frontend)/state_management/lib/main.dart",   
+            "program":"C:/Users/Big Daddy B/OneDrive/Python/Personlige Prosjekter/iOS apps/Investerings_kalkulator/flutter (frontend)/investerings_kalkulator - Copy (2)/lib/main.dart",       
+        },
+        {
+            "name": "state_management (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+        },
+        {
+            "name": "state_management (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+        }
+    ]
+}
+
+// BACKUP 
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "state_management",
+//             "request": "launch",
+//             "type": "dart"
+//         },
+//         {
+//             "name": "state_management (profile mode)",
+//             "request": "launch",
+//             "type": "dart",
+//             "flutterMode": "profile"
+//         },
+//         {
+//             "name": "state_management (release mode)",
+//             "request": "launch",
+//             "type": "dart",
+//             "flutterMode": "release"
+//         }
+//     ]
+// }
