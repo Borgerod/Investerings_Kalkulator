@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-// import 'package:investerings_kalkulator/homepage_widget.dart';
 import 'package:provider/provider.dart';
-// import 'homepage.dart';
-import 'testpage.dart';
-import 'package:flutter/material.dart';
-import 'state_provider.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:investerings_kalkulator/state_provider.dart';
+import 'package:investerings_kalkulator/homepage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,12 +41,6 @@ class _MyAppState extends State<MyApp> {
               create: (context) => InputCalcProvider(),
             ),
             ChangeNotifierProvider(
-              create: (context) => OutputProvider(),
-            ),
-            ChangeNotifierProvider(
-              create: (context) => SeriesProvider(),
-            ),
-            ChangeNotifierProvider(
               create: (context) => BeforeAfterProvider(),
             ),
           ],
@@ -67,7 +57,6 @@ class _MyAppState extends State<MyApp> {
             ],
             theme: ThemeData(brightness: Brightness.light),
             darkTheme: ThemeData(brightness: Brightness.dark),
-            // home: const MyHomePage(),
             home: MyHomePage(),
           ),
         ),
