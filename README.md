@@ -118,21 +118,31 @@ ________________________________________________________________________________
   - [ ]   LEGG TIL   -> {ThemeProvider} - [STATE] som skal være State for alle fargene som blir brukt. 
   - [ ]   LEGG TIL   -> {DarkLightSwitch} - [BUTTON_WIDGET] som skal endre på 'ThemeProvider' til å returnere Statene "LightModeTheme" eller "DarkModeTheme"
 
+
 - [ ] TILLEGG: 
-  - [ ]  ENDRE       -> {InputForm}            Til å ikke raise en error når noe annet enn tall blir ført inn. 
-  - [ ]  LEGG TIL    -> {IndexSwitch} - [BUTTON] Knapp som bytter mellom Dataframe med enten "terms" som index eller "perioder"
-  - [ ]  LEGG TIL    -> {BackToTop} - [BUTTON]   knapp som tar deg tilbake til topp, kanskje en til som tar deg tilbake til toppen av dataframet. 
-  - [ ]  ENDRE       -> {BackToTop} - [BUTTON]   Gjerne sørg for at knappen er sticky til skjermen etter du passerer dataframet. 
-  - [X]  ENDRE       -> {LineChartDisplay}     Interest line viser feil. 
-  - [ ]  ENDRE       -> {LineChartDisplay}     Endre på Y-aksen til å ikke vise det øverste tallet, eller få den til å skalere seg jevnt.  
-  - [ ]  ENDRE       -> {LineChartDisplay}     få "on-hover-skiltet" til å displaye utenfor grafens containter.  
-  - [ ]  ENDRE       -> {DataFrameDisplay}     Få Kolonnefeltet til å være sticky. 
-  - [ ]  ENDRE       -> {DataFrameDisplay}     Endre på paddingen til dataframet slik at indexen vises etter 2 siffere. 
-  - [X]  ENDRE       -> {DataFrameDisplay}     Fiks på formelene til - [BEFORE]
-  - [X]  Legg TIL    -> {DataFrameDisplay}     Legg til "termin" i index colonnen i dataframet. 
-  - [ ]  Legg TIL    -> {DataFrameDisplay}     For "monthly" section iht "IndexSwitch" sett opp et skilt per 12 måned, som sier hvilket år det er.
-  - [X]  ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
-  - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
-  - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
-  - [ ]  LEGG TIL    -> {googleAd}             Legg til en google ad som er ankret til bunnen av skjermen. 
-  - [ ]  ENDRE       -> {ShadowBox}            Ton ned på dropshadow, det ser litt mye kontrast  
+  - [ ]   ENDRE       -> {InputForm}            Til å ikke raise en error når noe annet enn tall blir ført inn. 
+  - [X]   ENDRE       -> {LineChartDisplay}     Interest line viser feil. 
+  - [ ]   ENDRE       -> {DataFrameDisplay}     Få Kolonnefeltet til å være sticky. 
+  - [ ]   ENDRE       -> {DataFrameDisplay}      ENDRE på paddingen til dataframet slik at indexen vises etter 2 siffere. 
+  - [X]   ENDRE       -> {DataFrameDisplay}     Fiks på formelene til - [BEFORE]
+  - [X]   LEGG TIL    -> {DataFrameDisplay}      LEGG TIL "termin" i index colonnen i dataframet. 
+  - [ ]   LEGG TIL    -> {DataFrameDisplay}     For "monthly" section iht "IndexSwitch" sett opp et skilt per 12 måned, som sier hvilket år det er.
+  - [X]   ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
+  - [X]   LEGG TIL    -> {googleAd}              LEGG TIL en google ad som er ankret til bunnen av skjermen. 
+  - [X]   ENDRE       -> {ShadowBox}            Ton ned på dropshadow, det ser litt mye kontrast  
+  - [ ]   ENDRE       -> {BackGroundPhoto}      Endre fargen på bakgrunnsbildet til en shade mørkere
+  - [ ]   LEGG TIL    -> {BackGroundPhoto}      Lag et bakgrunnsbilde nr 2 til dark mode. 
+     - [ ]   ALT      -> {BackGroundPhoto}      Gjør bakgrunnsbilde om til en SVG-fil så du kan endre på fargescheemet. 
+
+
+### ___ PRELAUNCH HIGH PRIO ______________________
+- [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
+- [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
+- [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
+
+###___ PRELAUNCH LOW PRIO ______________________
+- [ ]   ENDRE       -> {LineChartDisplay}      ENDRE på Y-aksen til å ikke vise det øverste tallet, eller få den til å skalere seg jevnt.  
+- [ ]   ENDRE       -> {LineChartDisplay}     få "on-hover-skiltet" til å displaye utenfor grafens containter.  
+- [ ]   LEGG TIL    -> {IndexSwitch} - [BUTTON] Knapp som bytter mellom Dataframe med enten "terms" som index eller "perioder"
+- [ ]   LEGG TIL    -> {BackToTop}   - [BUTTON] knapp som tar deg tilbake til topp, kanskje en til som tar deg tilbake til toppen av dataframet. 
+- [ ]   ENDRE       -> {BackToTop}   - [BUTTON] Gjerne sørg for at knappen er sticky til skjermen etter du passerer dataframet. 
