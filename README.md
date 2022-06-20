@@ -131,7 +131,7 @@ ________________________________________________________________________________
   - [X]  ENDRE       -> {DataFrameDisplay}     Fiks på formelene til - [BEFORE]
   - [X]  Legg TIL    -> {DataFrameDisplay}     Legg til "termin" i index colonnen i dataframet. 
   - [ ]  Legg TIL    -> {DataFrameDisplay}     For "monthly" section iht "IndexSwitch" sett opp et skilt per 12 måned, som sier hvilket år det er.
-  - [ ]  ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
+  - [X]  ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
   - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
   - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
   - [ ]  LEGG TIL    -> {googleAd}             Legg til en google ad som er ankret til bunnen av skjermen. 
