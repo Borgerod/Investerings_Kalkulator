@@ -133,15 +133,20 @@ ________________________________________________________________________________
   - [ ]   ENDRE       -> {BackGroundPhoto}      Endre fargen på bakgrunnsbildet til en shade mørkere
   - [ ]   LEGG TIL    -> {BackGroundPhoto}      Lag et bakgrunnsbilde nr 2 til dark mode. 
      - [ ]   ALT      -> {BackGroundPhoto}      Gjør bakgrunnsbilde om til en SVG-fil så du kan endre på fargescheemet. 
-
+  - [ ]   ENDRE       -> {color_variables}      Burde endre color_variables til class => ColorVariables{} -> lightMode(), darkMode(). 
 
 ### ___ PRELAUNCH HIGH PRIO ______________________
+###### ___ CHANGE & ADD __________
 - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
 - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
-- [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
 
-###___ PRELAUNCH LOW PRIO ______________________
-- [ ]   ENDRE       -> {LineChartDisplay}      ENDRE på Y-aksen til å ikke vise det øverste tallet, eller få den til å skalere seg jevnt.  
+###### ___ BUGS & ERRORS __________
+- [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
+- [ ]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
+
+
+### ___ PRELAUNCH LOW PRIO ________________________
+- [ ]   ENDRE       -> {LineChartDisplay}      ENDRE på Y-aksen til å ikke vise det øverste tallet, eller skalene dem jevnt.  
 - [ ]   ENDRE       -> {LineChartDisplay}     få "on-hover-skiltet" til å displaye utenfor grafens containter.  
 - [ ]   LEGG TIL    -> {IndexSwitch} - [BUTTON] Knapp som bytter mellom Dataframe med enten "terms" som index eller "perioder"
 - [ ]   LEGG TIL    -> {BackToTop}   - [BUTTON] knapp som tar deg tilbake til topp, kanskje en til som tar deg tilbake til toppen av dataframet. 
