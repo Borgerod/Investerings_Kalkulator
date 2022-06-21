@@ -63,7 +63,7 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                             style: TextStyle(color: colorTextblack),
                           ),
                           SizedBox(width: 10),
-                          indicator1,
+                          indicator2,
                         ],
                       ),
                       SizedBox(height: 10),
@@ -76,7 +76,7 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                             style: TextStyle(color: colorTextblack),
                           ),
                           SizedBox(width: 10),
-                          indicator2,
+                          indicator1,
                           // indicator3
                         ],
                       ),
@@ -123,8 +123,9 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
     double total = principleAmt + totalContributions + interestAccrued;
 
     List<PieChartSectionData> data = [
+      // STARTSUM
       PieChartSectionData(
-        color: colorDarkGreen,
+        color: colorHazyGreen,
         value: principleAmt / total,
         title: '${(((principleAmt / total) * 100).toStringAsFixed(1))}%',
         titleStyle: TextStyle(
@@ -132,6 +133,7 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
         ),
       ),
       PieChartSectionData(
+        //DIVIDENDE
         color: colorAmber,
         value: totalContributions / total,
         title: '${(((totalContributions / total) * 100).toStringAsFixed(1))}%',
@@ -140,7 +142,8 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
         ),
       ),
       PieChartSectionData(
-        color: colorHazyGreen,
+        // TILLEGGSBIDRAG
+        color: colorDarkGreen,
         value: interestAccrued / total,
         title: '${(((interestAccrued / total) * 100).toStringAsFixed(1))}%',
         titleStyle: TextStyle(

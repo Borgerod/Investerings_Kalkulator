@@ -61,13 +61,15 @@ String formatNumber(
     case FormatType.decimal:
       switch (decimalType) {
         case DecimalType.automatic:
-          formattedValue = NumberFormat.decimalPattern().format(value);
+          formattedValue = NumberFormat.decimalPattern('no_NO').format(value);
           break;
         case DecimalType.periodDecimal:
-          formattedValue = NumberFormat.decimalPattern('en_US').format(value);
+          // formattedValue = NumberFormat.decimalPattern('en_US').format(value);
+          formattedValue = NumberFormat.decimalPattern('no_NO').format(value);
           break;
         case DecimalType.commaDecimal:
-          formattedValue = NumberFormat.decimalPattern('es_PA').format(value);
+          // formattedValue = NumberFormat.decimalPattern('es_PA').format(value);
+          formattedValue = NumberFormat.decimalPattern('no_NO').format(value);
           break;
       }
       break;

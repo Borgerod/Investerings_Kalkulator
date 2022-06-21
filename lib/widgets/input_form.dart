@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+// import 'package:investerings_kalkulator/flutter_flow/flutter_flow_util.dart';
 import 'package:investerings_kalkulator/utilities/color_variables.dart';
 import 'package:provider/provider.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/utilities/custom_texts.dart';
 import 'package:investerings_kalkulator/utilities/custom_box_shadow.dart';
+import 'package:investerings_kalkulator/utilities/number_formatter.dart';
+// import 'package:flutter/services.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:intl/intl.dart';
 
 //* ___________ INPUT FORM _____________________________________________________
 class InputForm extends StatefulWidget {
@@ -25,13 +31,10 @@ class _InputFormState extends State<InputForm> {
       children: [
         // HEADER
         Container(
-          // constraints: BoxConstraints.expand(),
           height: 55,
-          // width: 300,
-          margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+          margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 7.0),
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 80.0),
           decoration: BoxDecoration(
-            // borderRadius: BorderRadius.circular(3),
             color: colorWhite,
             boxShadow: customBoxShadow(),
           ),
@@ -49,28 +52,32 @@ class _InputFormState extends State<InputForm> {
           child: Column(
             children: [
               TextFormField(
+                  // initialValue: null,
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('Startsum', 'kr'),
-                  controller: _ctrl1,
+                  decoration: inputDecor('Startsum', 'kr', 7.0),
+                  controller: controller1,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
                   onChanged: (val) {
                     if (val.isEmpty) {
+                      String newVal = "0";
                       context
                           .read<InputProvider>()
-                          .changePrincipleAmt(double.parse(("0")));
+                          .changePrincipleAmt(double.parse(newVal));
                     } else {
+                      print(val);
+                      print(val.runtimeType);
                       context
                           .read<InputProvider>()
-                          .changePrincipleAmt(double.parse((val)));
+                          .changePrincipleAmt(numberTextReformat(val));
                     }
                   }),
               SizedBox(height: 10),
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('antall år', 'år'),
+                  decoration: inputDecor('antall år', 'år', 7.0),
                   controller: _ctrl2,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
@@ -89,7 +96,7 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('perioder *', 'ant'),
+                  decoration: inputDecor('perioder *', 'ant', 0.0),
                   controller: _ctrl3,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
@@ -108,38 +115,40 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('dividende', '%'),
-                  controller: _ctrl4,
+                  decoration: inputDecor('dividende', '%', 7.0),
+                  controller: controller4,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
                   onChanged: (val) {
                     if (val.isEmpty) {
+                      String newVal = "0";
                       context
                           .read<InputProvider>()
-                          .changeAnnualRate(double.parse(("0")));
+                          .changeAnnualRate(double.parse(newVal));
                     } else {
                       context
                           .read<InputProvider>()
-                          .changeAnnualRate(double.parse((val)));
+                          .changeAnnualRate(numberTextReformat(val));
                     }
                   }),
               SizedBox(height: 10),
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('tilleggsbidrag', 'kr'),
-                  controller: _ctrl5,
+                  decoration: inputDecor('tilleggsbidrag', 'kr', 7.0),
+                  controller: controller5,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
                   onChanged: (val) {
                     if (val.isEmpty) {
+                      String newVal = "0";
                       context
                           .read<InputProvider>()
-                          .changeMonthlyContribution(double.parse(("0")));
+                          .changeMonthlyContribution(double.parse(newVal));
                     } else {
                       context
                           .read<InputProvider>()
-                          .changeMonthlyContribution(double.parse((val)));
+                          .changeMonthlyContribution(numberTextReformat(val));
                     }
                   }),
             ],
@@ -147,7 +156,7 @@ class _InputFormState extends State<InputForm> {
         ),
         Container(
           height: 60,
-          margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 25.0),
+          margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 27.0),
           decoration: BoxDecoration(
             color: colorWhite,
             boxShadow: customBoxShadow(),
@@ -164,8 +173,8 @@ class _InputFormState extends State<InputForm> {
                         child: Text('*'))),
                 Flexible(
                     child: noramlGreyText(
-                        '''Hvor mange ganger i året skal tilleggsbidragene og 
-dividenden betales. F.eks.  Én gang hver måned vil 
+                        '''Hvor mange ganger i året skal tilleggsbidragene og
+dividenden betales. F.eks.  Én gang hver måned vil
 da være 12 perioder.''')),
               ],
             ),
@@ -175,19 +184,26 @@ da være 12 perioder.''')),
     );
   }
 
-  inputDecor(label, hintlabel) {
+  inputDecor(label, hintlabel, spacing) {
     return InputDecoration(
       focusColor: colorHazyGreen,
       alignLabelWithHint: true,
+      suffixIcon: Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+          child: Text("$hintlabel",
+              style: TextStyle(color: colorTextGray, fontSize: 16))),
+      suffixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
       prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
       prefixIcon:
-          Text("      $label   ", style: TextStyle(color: colorTextblack)),
-      contentPadding: const EdgeInsets.only(left: 20.0, right: 10.0),
+          Text("      $label   ", style: TextStyle(color: colorCharcoal)),
+      // Text("      $label   ", style: TextStyle(color: colorTextGray)),
+      contentPadding: EdgeInsets.only(left: spacing, right: 10.0),
       filled: true,
       fillColor: colorWhite,
-      hintText: hintlabel,
+      hintText: '0',
       hintStyle: TextStyle(
-        color: colorTextGray,
+        // color: colorTextGray,
+        color: colorCharcoal,
       ),
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
     );

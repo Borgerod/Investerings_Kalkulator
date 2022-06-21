@@ -8,6 +8,7 @@ var colorCharcoal = Color.fromARGB(255, 41, 41, 41);
 var colorTextGray = Color.fromARGB(255, 91, 90, 90);
 var colorHeadline = Color.fromARGB(206, 252, 252, 252);
 var colorTextblack = Color.fromARGB(255, 0, 0, 0);
+var colorTextCharcoal = Color.fromARGB(255, 0, 0, 0);
 var colorWhite = Color.fromARGB(255, 255, 255, 255);
 var colorSection = Color.fromARGB(255, 242, 242, 241);
 var colorLegend = Color.fromARGB(213, 95, 95, 95);

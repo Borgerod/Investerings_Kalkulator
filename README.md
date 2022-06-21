@@ -91,63 +91,77 @@ ________________________________________________________________________________
   - [X]   LEGG TIL   -> {PieChartDisplay} til å displaye statene fra 'OutputProvider'
 
 - [X] ANDRE STADIET:
-  - ~~-- [ ]   LEGG TIL   -> {DataFrameCalculator} til å regne ut "DataFrameResults" statene fra 'InputCalcProvider' og sende til 'DataFrameProvider'~~
-  - ~~-- [ ]   LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut av "DataFrameResults" til 'DataFrameProvider' og displaye det~~
-  - ~~-- [ ]   LEGG TIL   -> {LineChart} til å hente ut dataframet fra 'DataFrameProvider', velg ut de radene den trenger, lag LineChart og Display~~
-  - ~~-- [ ]   MAYBE      -> {LineChartCalculator} (Om dette blir lettere) til å hente ut dataframet fra 'DataFrameProvider', velg ut de radene den trenger og send videre til   'LineChartProvider'~~
-  - ~~-  [ ]   MAYBE      -> {LineChartDisplay} (Om dette blir lettere) til å hente ut data fra 'LineChartProvider', bygg LineChart og Display~~
-  - [X]   LEGG TIL   -> {SeriesCalculator} til å regne ut de "Kumulative seriene for parameterne" og sende noen av dem til 'LineChartProvider' og send alle til     'DataFrameProvider'
-  - ~~[ ]   LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut i fra statene til 'DataFrameProvider' og display det~~
-  - ~~[ ]   MAYBE      -> {LineChartDisplay} til å Lage en LineChart ut i fra statene til 'LineChartProvider' og display det~~
+  - ~~-- [ ]   LEGG TIL   -> {DataFrameCalculator} 'InputCalcProvider'  -"DataFrameResults"-> 'DataFrameProvider'~~
+  - ~~-- [ ]   LEGG TIL   -> {DataFrameDisplay} -'DataFrameProvider'["DataFrameResults"]-> DataTable => display~~
+  - ~~-- [ ]   LEGG TIL   -> {LineChart} 'DataFrameProvider' -> "dataframe", velg ut rows, lag LineChart og Display~~
+      - ~~--[ ]   ALT     -> {LineChartCalculator}  'DataFrameProvider' -> "dataframe", velg ut rows =>'LineChartProvider'~~
+      - ~~--[ ]   ALT     -> {LineChartCalculator}  til å hente ut data fra 'LineChartProvider', bygg LineChart og Display~~
+  - [X]   LEGG TIL   -> {SeriesCalculator} Regne ut "Kumulative resultatene" => 'DataFrameProvider' & 'LineChartProvider'
+  - ~~[ ]   LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut i fra statene til 'DataFrameProvider' og display~~
+  - ~~[ ]   MAYBE      -> {LineChartDisplay} til å Lage en LineChart ut i fra statene til 'LineChartProvider' og display~~
   - [X]   LEGG TIL   -> {DataFrameDisplay} til å Lage et DataTable ut i fra data direkte hentet fra class Getresults(){} 
   - [X]   MAYBE      -> {LineChartDisplay} til å Lage en LineChart ut i fra data direkte hentet fra class Getresults(){} 
-  - [X]   Endre      -> {SeriesCalculator}     - [CLASS] Del opp 'SeriesCalculator' til {SeriesCalculatorBefore} og {SeriesCalculatorAfter}
-  - ~~- [ ]   ENDRE      -> {ResultatCalculator}   - [CLASS] Del opp 'ResultatCalculator' til {ResultatCalculatorBefore} og {ResultatCalculatorAfter}~~
-  - [X]   LEGG TIL   -> {BeforeAfterSwitch}    - [CLASS] en if funksjon som bestemmer hvilken ut av 'SeriesCalculatorBefore' eller 'SeriesCalculatorAfter' skal brukes, etc..
+  - [X]   Endre      -> {SeriesCalculator} [class] Del opp 'SeriesCalculator' til {..Before} og {..After}
+  - ~~- [ ]   ENDRE      -> {ResultatCalculator}   - [CLASS] Del opp 'ResultatCalculator' til {..Before} og {..After}~~
 
 
 - [X] TREDJE STADIET:
-  - [X]   LEGG TIL   -> {BeforeAfterProvider} - [STATE] om skal være State for "Before" og "After"
-  - [X]   LEGG TIL   -> {BeforeAfterSwitch}   - [BUTTON_WIDGET] Knapp som setter state til 'BeforeAfterProvider' til "BeforeAfter"
-  - [X]   Endre      -> {SeriesCalculator}    legg til en if funksjon i 'SeriesCalculator' som bestemmmer om "BeforeFormelen" eller "AfterFormelen" skal brukes
-  - [X]   Endre      -> {ResultatCalculator}  legg til en if funksjon i 'ResultatCalculator' som bestemmmer om "BeforeFormelen" eller "AfterFormelen" skal brukes
- 
+  - [X]   LEGG TIL   -> {BeforeAfterProvider} [STATE] om skal være State for "Before" og "After"
+  - [X]   LEGG TIL   -> {BeforeAfterSwitch}   [BUTTON_WIDGET] setter state til 'BeforeAfterProvider' til "BeforeAfter"
+  - [X]   LEGG TIL   -> {SeriesCalculator}   if-funksjon: bestemmer om '..Before' eller '..After' skal brukes, etc..
+  - [X]   LEGG TIL   -> {ResultatCalculator} if-funksjon: bestemmer om '..Before' eller '..After' skal brukes, etc..
+
 
 - [ ] FJERDE STADIET:
   - [ ]   LEGG TIL   -> {Theme} som skal velge mellom to themes "LightMode" og "DarkMode"
-  - [ ]   LEGG TIL   -> {ThemeProvider} - [STATE] som skal være State for alle fargene som blir brukt. 
-  - [ ]   LEGG TIL   -> {DarkLightSwitch} - [BUTTON_WIDGET] som skal endre på 'ThemeProvider' til å returnere Statene "LightModeTheme" eller "DarkModeTheme"
+  - [ ]   LEGG TIL   -> {ThemeProvider} [STATE] som skal være State for alle fargene som blir brukt. 
+  - [ ]   LEGG TIL   -> {DarkLightSwitch} [BUTTON] bestemmer om 'ThemeProvider' => "LightModeTheme" eller "DarkModeTheme"
 
 
 - [ ] TILLEGG: 
   - [ ]   ENDRE       -> {InputForm}            Til å ikke raise en error når noe annet enn tall blir ført inn. 
   - [X]   ENDRE       -> {LineChartDisplay}     Interest line viser feil. 
   - [ ]   ENDRE       -> {DataFrameDisplay}     Få Kolonnefeltet til å være sticky. 
-  - [ ]   ENDRE       -> {DataFrameDisplay}      ENDRE på paddingen til dataframet slik at indexen vises etter 2 siffere. 
+  - [ ]   ENDRE       -> {DataFrameDisplay}     ENDRE på paddingen til dataframet slik at indexen vises etter 2 siffere. 
   - [X]   ENDRE       -> {DataFrameDisplay}     Fiks på formelene til - [BEFORE]
-  - [X]   LEGG TIL    -> {DataFrameDisplay}      LEGG TIL "termin" i index colonnen i dataframet. 
-  - [ ]   LEGG TIL    -> {DataFrameDisplay}     For "monthly" section iht "IndexSwitch" sett opp et skilt per 12 måned, som sier hvilket år det er.
+  - [X]   LEGG TIL    -> {DataFrameDisplay}     LEGG TIL "termin" i index colonnen i dataframet. 
+  - [ ]   LEGG TIL    -> {IndecSwitch}          del opp "monthlySection" sett opp et skilt per 12 måned, som sier hvilket år det er.
   - [X]   ENDRE       -> {TODO.txt}             Oppdatere StateKartet.  
-  - [X]   LEGG TIL    -> {googleAd}              LEGG TIL en google ad som er ankret til bunnen av skjermen. 
+  - [X]   LEGG TIL    -> {googleAd}             LEGG TIL en google ad som er ankret til bunnen av skjermen. 
   - [X]   ENDRE       -> {ShadowBox}            Ton ned på dropshadow, det ser litt mye kontrast  
   - [ ]   ENDRE       -> {BackGroundPhoto}      Endre fargen på bakgrunnsbildet til en shade mørkere
   - [ ]   LEGG TIL    -> {BackGroundPhoto}      Lag et bakgrunnsbilde nr 2 til dark mode. 
      - [ ]   ALT      -> {BackGroundPhoto}      Gjør bakgrunnsbilde om til en SVG-fil så du kan endre på fargescheemet. 
-  - [ ]   ENDRE       -> {color_variables}      Burde endre color_variables til class => ColorVariables{} -> lightMode(), darkMode(). 
+  - [ ]   ENDRE       -> {color_variables}      Gjør color_variables til class: ColorVariables{} => lightMode(),darkMode() 
 
 ### ___ PRELAUNCH HIGH PRIO ______________________
 ###### ___ CHANGE & ADD __________
-- [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
-- [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
+  - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
+  - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
+  - [ ]  LEGG TIL    -> {LineChart}            Legg til Legend til kurvene 
 
 ###### ___ BUGS & ERRORS __________
-- [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
-- [ ]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
+  - [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
+  - [ ]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
+  - [ ]  WARNIGN     -> {Adroind Studio}       Warning: Mapping new ns "http://schemas.android.com/.../android/common/01"  
+  - [ ]  FAILIUE     -> {Adroind Studio}       FAILURE: Build failed with an exception.
+
+<!-- FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Failed to create parent directory 'C:\Users\Big Daddy B' when creating directory 'C:\Users\Big Daddy B\OneDrive\Python\Personlige Prosjekter\iOS apps\Investerings_kalkulator\flutter (frontend)\investerings_kalkulator - Copy (2)\build\app\intermediates\flutter\debug\flutter_assets'
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org -->
 
 
 ### ___ PRELAUNCH LOW PRIO ________________________
-- [ ]   ENDRE       -> {LineChartDisplay}      ENDRE på Y-aksen til å ikke vise det øverste tallet, eller skalene dem jevnt.  
-- [ ]   ENDRE       -> {LineChartDisplay}     få "on-hover-skiltet" til å displaye utenfor grafens containter.  
-- [ ]   LEGG TIL    -> {IndexSwitch} - [BUTTON] Knapp som bytter mellom Dataframe med enten "terms" som index eller "perioder"
-- [ ]   LEGG TIL    -> {BackToTop}   - [BUTTON] knapp som tar deg tilbake til topp, kanskje en til som tar deg tilbake til toppen av dataframet. 
-- [ ]   ENDRE       -> {BackToTop}   - [BUTTON] Gjerne sørg for at knappen er sticky til skjermen etter du passerer dataframet. 
+  - [ ]   ENDRE       -> {LineChartDisplay}      Endre Y-aksen til å ikke vise det øverste tallet, evt skalene dem jevnt.  
+  - [ ]   ENDRE       -> {LineChartDisplay}      få "on-hover-skiltet" til å displaye utenfor grafens containter.  
+  - [ ]   LEGG TIL    -> {IndexSwitch} [BUTTON]  bestemmer om Dataframe skal bruke "terms" eller "perioder" som index.
+  - [ ]   LEGG TIL    -> {BackToTop}   [BUTTON]  knapp som tar deg tilbake til topp, evt tilbake til toppen av dataframet. 
+  - [ ]   ENDRE       -> {BackToTop}   [BUTTON]  Gjerne sørg for at knappen er sticky etter du passerer dataframet. 
+  - [ ]   ENDRE       -> {Container}             Nederste containerne er hevet "over" den forje, skal være "under"           
