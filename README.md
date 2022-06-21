@@ -79,6 +79,7 @@ ________________________________________________________________________________
 
 
 
+
 ## TODO:
 - [X] FØRSTE STADIET:
   - [X]   Endre      -> {InputDisplay} til å displaye statene fra 'InputCalcProvider' istedet for 'InputProvider'
