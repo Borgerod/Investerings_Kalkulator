@@ -39,10 +39,12 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                 alignment: Alignment.topLeft,
                 child: Container(
                     padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Oversikt',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: colorHeadline, fontSize: 30),
+                    child: Center(
+                      child: Text(
+                        'Oversikt',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: colorHeadline, fontSize: 30),
+                      ),
                     )),
               ),
             ),
@@ -53,6 +55,7 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: Column(children: [
+                      // TILLEGGSBIDRAG
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -66,6 +69,8 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                           indicator2,
                         ],
                       ),
+
+                      // DIVIDENDE
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -80,6 +85,8 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
                           // indicator3
                         ],
                       ),
+
+                      // STARTSUM
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -123,31 +130,35 @@ class _PieChartDisplayState extends State<PieChartDisplay> {
     double total = principleAmt + totalContributions + interestAccrued;
 
     List<PieChartSectionData> data = [
-      // STARTSUM
       PieChartSectionData(
-        color: colorHazyGreen,
-        value: principleAmt / total,
-        title: '${(((principleAmt / total) * 100).toStringAsFixed(1))}%',
-        titleStyle: TextStyle(
-          color: colorBackground,
-        ),
-      ),
-      PieChartSectionData(
-        //DIVIDENDE
-        color: colorAmber,
-        value: totalContributions / total,
-        title: '${(((totalContributions / total) * 100).toStringAsFixed(1))}%',
-        titleStyle: TextStyle(
-          color: colorBackground,
-        ),
-      ),
-      PieChartSectionData(
-        // TILLEGGSBIDRAG
+        //TILLEGGSBIDRAG
         color: colorDarkGreen,
-        value: interestAccrued / total,
-        title: '${(((interestAccrued / total) * 100).toStringAsFixed(1))}%',
+        value: totalContributions / total,
+        title: '${(((totalContributions / total) * 100).toStringAsFixed(0))}%',
         titleStyle: TextStyle(
-          color: colorBackground,
+          color: colorWhite,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      // DIVIDENDE
+      PieChartSectionData(
+        color: colorAmber,
+        value: principleAmt / total,
+        title: '${(((principleAmt / total) * 100).toStringAsFixed(0))}%',
+        titleStyle: TextStyle(
+          color: colorWhite,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
+      PieChartSectionData(
+        // STARTSUM
+        color: colorHazyGreen,
+        value: interestAccrued / total,
+        title: '${(((interestAccrued / total) * 100).toStringAsFixed(0))}%',
+        titleStyle: TextStyle(
+          color: colorWhite,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ];

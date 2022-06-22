@@ -45,10 +45,7 @@ class _BeforAfterSwitchState extends State<BeforAfterSwitch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // margin: EdgeInsets.symmetric(horizontal: 15),
-        // padding: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
-          // boxShadow: customBoxShadow(),
           color: colorWhite,
           borderRadius: BorderRadius.circular(5.0),
         ),
