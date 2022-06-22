@@ -15,11 +15,34 @@ class GetRows {
     List endBalanceAfter = [];
 
     //* _____ FinalValue [AFTER] _____________________________________
-    for (var i = 1; i < raisedtopower2 + 1; i++) {
-      double fva = (principle * (pow((1 + (dividend / periods)), (i)))) +
-          (additionalContributions *
+    // for (var i = 1; i < raisedtopower2 + 1; i++) {
+    //   double fva = (principle * (pow((1 + (dividend / periods)), (i)))) +(additionalContributions *(pow((1 + dividend / periods), (i)) - 1) /(dividend / periods));
+
+    for (var i = 1; i < raisedtopower2 + 2; i++) {
+      double fva = (additionalContributions *
               (pow((1 + dividend / periods), (i)) - 1) /
-              (dividend / periods));
+              (dividend / periods)) +
+          (principle * (pow((1 + (dividend / periods)), (pi))));
+
+      // //? ___ End Balance ________
+      // endBalanceAfter.add(fva);
+
+      // //? ___ Start Principle ________
+      // startPrincipleAfter
+      //     .add(principle + (additionalContributions * i)); //! MULIG OPMVENDT
+      // startPrincipleAfter.add(principle + (additionalContributions * i));
+
+      // //? ___ End Principle ________
+      // endPrincipleAfter.add(
+      //     principle + (additionalContributions * (i + 1))); //! MULIG OPMVENDT
+      // endPrincipleAfter.add(principle + (additionalContributions * (i + 1)));
+
+      // //? ___ Interest ________
+      // interestAfter.add(fva * (dividend / periods));
+
+      // for (var i = 0; i < endBalanceAfter.length - 1; i++) {
+      //   startBalanceAfter.add(endBalanceAfter[i]);
+      // }
 
       //? ___ End Balance ________
       endBalanceAfter.add(fva);
@@ -47,30 +70,63 @@ class GetRows {
 
     //* _____ FinalValue [BEFORE] _____________________________________
     List startPrincipleBefore = [];
-    List startBalanceBefore = [];
+    // List startBalanceBefore = [];
     List interestBefore = [];
-    List interestAccruedBefore = [];
+    // List interestAccruedBefore = [];
     List endPrincipleBefore = [];
     List endBalanceBefore = [];
-    for (var i = 1; i < raisedtopower2 + 1; i++) {
-      double fvb =
-          (principle * (pow((1 + (dividend / periods)), (periods * i)))) +
-              ((additionalContributions *
-                      (pow((1 + dividend / periods), (periods * i)) - 1) /
-                      (dividend / periods)) *
-                  (1 + (dividend / periods)));
+
+    // List startPrincipleBefore = [principle];
+    List startBalanceBefore = [principle];
+    // List interestBefore = [(principle * (dividend / periods))];
+    List interestAccruedBefore = [(principle * (dividend / periods))];
+    // List endPrincipleBefore = [];
+    // List endBalanceBefore = [];
+
+    double extra = (1 + (dividend / periods));
+    for (var i = 1; i < raisedtopower2 + 2; i++) {
+      double fvb = (principle * (pow((1 + (dividend / periods)), (i)))) +
+          ((additionalContributions *
+                  (pow((1 + dividend / periods), (i)) - 1) /
+                  (dividend / periods)) +
+              extra);
+      //   endBalanceBefore.add(fvb);
+      //   interestBefore.add(fvb - additionalContributions - principle);
+      //   interestAccruedBefore
+      //       .add(additionalContributions * i); //! WRONG CHECK _interestList
+      //   startPrincipleBefore
+      //       .add(principle + (additionalContributions * i)); //! MULIG OPMVENDT
+      //   endPrincipleBefore.add(
+      //       principle + (additionalContributions * (i + 1))); //! MULIG OPMVENDT
+      // }
+      // for (var i = 0; i < endBalanceBefore.length - 1; i++) {
+      //   startBalanceBefore.add(endBalanceBefore[i]);
+      // }
+
+      //? ___ End Balance ________
       endBalanceBefore.add(fvb);
-      interestBefore.add(fvb - additionalContributions - principle);
-      interestAccruedBefore
-          .add(additionalContributions * i); //! WRONG CHECK _interestList
+
+      //? ___ Start Principle ________
       startPrincipleBefore
           .add(principle + (additionalContributions * i)); //! MULIG OPMVENDT
+
+      //? ___ End Principle ________
       endPrincipleBefore.add(
           principle + (additionalContributions * (i + 1))); //! MULIG OPMVENDT
+
+      //? ___ Interest ________
+      interestBefore.add(fvb * (dividend / periods));
+
+      //? ___ interest Accrued ________
+      interestAccruedBefore
+          .add((interestAccruedBefore[i - 1] + (fvb * (dividend / periods))));
     }
+
+    //? ___ End Balance ________
     for (var i = 0; i < endBalanceBefore.length - 1; i++) {
       startBalanceBefore.add(endBalanceBefore[i]);
     }
+
     //* _____ Return [AFTER OR BEFORE] _________________________________
 
     if (beforeAfterVal == 0) {
