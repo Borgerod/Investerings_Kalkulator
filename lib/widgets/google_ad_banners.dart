@@ -1,6 +1,6 @@
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
-import 'package:investerings_kalkulator/homepage.dart';
+// import 'package:investerings_kalkulator/homepage.dart';
 // import 'flutter_flow/flutter_flow_ad_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';

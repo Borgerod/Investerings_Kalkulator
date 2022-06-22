@@ -28,7 +28,7 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
     List seriesList = GetRows().resultat(principleAmt, timeDeltaInYears,
         periods, interestRate, additionalContributions, beforeAfterVal);
 
-    List<dynamic> interestSeries = seriesList[2];
+    List<dynamic> interestSeries = seriesList[3];
     List<dynamic> endprincipalSeries = seriesList[4];
     List<dynamic> endBalanceSeries = seriesList[5];
 
@@ -76,19 +76,40 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+            // padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+            padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+            // padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
             child: Container(
-              padding: EdgeInsets.all(5),
-              width: 340,
+              // padding: EdgeInsets.all(5),
+              margin: EdgeInsets.all(5),
+              width: 400,
               height: 200,
               color: colorSection,
               child: PageView(
                 children: [
                   LineChart(
                     LineChartData(
-                      borderData: FlBorderData(show: false),
-                      maxY: (endBalanceSeries.last * 1.10),
-                      baselineY: 1,
+                      lineTouchData: LineTouchData(
+                        touchTooltipData: LineTouchTooltipData(
+                          fitInsideVertically: true,
+                          fitInsideHorizontally: true,
+                          tooltipBgColor: colorDarkGrayBlue,
+                          getTooltipItems: (List<LineBarSpot> lineBarsSpot) {
+                            return lineBarsSpot.map((lineBarSpot) {
+                              return LineTooltipItem(
+                                  '${lineBarSpot.y.toStringAsFixed(2)},-',
+                                  TextStyle(color: colorWhite));
+                            }).toList();
+                          },
+                        ),
+
+                        // getTouchedSpotIndicator: TouchedSpotIndicatorData(),
+                      ),
+                      rangeAnnotations: RangeAnnotations(),
+                      gridData: FlGridData(),
+                      borderData: FlBorderData(show: true),
+                      maxY: ((endBalanceSeries.last * 2.1)),
+                      // baselineY: 1,
                       clipData: FlClipData(
                           top: true, bottom: true, left: false, right: true),
                       lineBarsData: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:provider/provider.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/utilities/custom_box_shadow.dart';
@@ -13,6 +14,19 @@ class ResultDisplay extends StatefulWidget {
 }
 
 class _ResultDisplayState extends State<ResultDisplay> {
+  // final ctrl1 =
+  //     MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+  final ctrl2 =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+  final ctrl3 =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+  final ctrl4 =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+  final ctrl5 =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+  final ctrl6 =
+      MoneyMaskedTextController(decimalSeparator: ',', thousandSeparator: ' ');
+
   @override
   Widget build(BuildContext context) {
     double principle = context.watch<InputCalcProvider>().principleAmt;
@@ -26,6 +40,31 @@ class _ResultDisplayState extends State<ResultDisplay> {
     List resultList = GetResults().resultat(principle, timeDeltaInYears,
         periods, interestRate, additionalContributions, beforeAfterVal);
 
+    final ctrl0 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[0]);
+
+    final ctrl1 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[1]);
+    final ctrl2 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[2]);
+    final ctrl3 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[3]);
+    final ctrl4 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[4]);
+    final ctrl5 = MoneyMaskedTextController(
+        decimalSeparator: ',',
+        thousandSeparator: ' ',
+        initialValue: resultList[5]);
     return Padding(
         padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 15.0),
         child: Container(
@@ -53,7 +92,10 @@ class _ResultDisplayState extends State<ResultDisplay> {
                       Text('Slutt Balanse: ',
                           style: TextStyle(color: Colors.white, fontSize: 20)),
                       Spacer(),
-                      Text(' kr  ${resultList[0].toStringAsFixed(2)},-',
+                      // ctrl1.value = resultList[0],
+
+                      Text(' kr  ${ctrl0.text} ,-',
+                          // Text(' kr  ${resultList[0].toStringAsFixed(2)},-',
                           style: TextStyle(color: Colors.white, fontSize: 20)),
                     ]),
                     Divider(height: 10),
@@ -67,25 +109,28 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('StartSum: ',
-                                      style: TextStyle(color: colorTextblack)),
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16)),
                                   Text('Totale tilskudd: ',
-                                      style: TextStyle(color: colorTextblack)),
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16)),
                                   Text('Total Dividende:',
-                                      style: TextStyle(color: colorTextblack)),
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16)),
                                 ]),
                             Spacer(),
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text(
-                                      '${resultList[1].toStringAsFixed(2)},  ,-',
-                                      style: TextStyle(color: colorTextblack)),
-                                  Text(
-                                      '${resultList[2].toStringAsFixed(2)},  ,-',
-                                      style: TextStyle(color: colorTextblack)),
-                                  Text(
-                                      '${resultList[3].toStringAsFixed(2)},  ,-',
-                                      style: TextStyle(color: colorTextblack))
+                                  Text('${ctrl1.text}  ,-',
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16)),
+                                  Text('${ctrl2.text}  ,-',
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16)),
+                                  Text('${ctrl3.text}  ,-',
+                                      style: TextStyle(
+                                          color: colorTextblack, fontSize: 16))
                                 ])
                           ]),
                     )
@@ -120,8 +165,7 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                         Text(
                                           'Totalt utbytte: ',
                                           style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
+                                              color: colorWhite, fontSize: 20),
                                         ),
                                         Text(
                                           'Annualiset utbytte: ',
@@ -134,14 +178,12 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text(
-                                            '${resultList[5].toStringAsFixed(2)} %',
+                                        Text('${ctrl4.text} %',
                                             textAlign: TextAlign.end,
                                             style: TextStyle(
                                                 color: colorWhite,
                                                 fontSize: 20)),
-                                        Text(
-                                            '${resultList[4].toStringAsFixed(2)} %',
+                                        Text('${ctrl5.text} %',
                                             style: TextStyle(
                                                 color: colorWhite,
                                                 fontSize: 20))

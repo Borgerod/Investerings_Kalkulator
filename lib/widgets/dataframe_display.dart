@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:quiver/iterables.dart';
 import 'package:investerings_kalkulator/utilities/color_variables.dart';
 import 'package:provider/provider.dart';
@@ -86,6 +87,7 @@ class BuildMap {
           child: Text(
             'termin',
             maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(color: colorTextblack),
           ),
         ),
@@ -149,31 +151,30 @@ class BuildMap {
 
   List<DataRow> _createRows(seriesList) {
     List datatableList = DataTableMapper().mapBuilder(seriesList);
-
     return datatableList
         .map((results) => DataRow(cells: [
               DataCell(SizedBox(
-                  width: 20,
+                  width: 25,
                   child: Text(
-                    results['index'].toStringAsFixed(0),
+                    results['index'].toString(),
                     style: TextStyle(color: colorTextblack),
                     textAlign: TextAlign.right,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ))),
-              DataCell(Text(
-                  results['startPrinciple'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['startPrinciple'].text,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(color: colorTextblack))),
-              DataCell(Text(results['startBalance'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['startBalance'].text,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(color: colorTextblack))),
-              DataCell(Text(results['interest'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['interest'].text,
                   style: TextStyle(color: colorTextblack))),
-              DataCell(Text(
-                  results['interestAccrued'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['interestAccrued'].text,
                   style: TextStyle(color: colorTextblack))),
-              DataCell(Text(results['endBalance'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['endBalance'].text,
                   style: TextStyle(color: colorTextblack))),
-              DataCell(Text(results['endPrinciple'].toStringAsFixed(2) + ' kr',
+              DataCell(Text(results['endPrinciple'].text,
                   style: TextStyle(color: colorTextblack))),
             ]))
         .toList();
@@ -204,14 +205,41 @@ class DataTableMapper {
       var iterationMap = {
         'datatableMap': i,
       };
+      // ignore: unused_local_variable
+      var startPrinciple = iterationMap['datatableMap'][0];
+
+      final ctrl1 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][1]);
+      final ctrl2 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][2]);
+      final ctrl3 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][3]);
+      final ctrl4 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][4]);
+      final ctrl5 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][5]);
+      final ctrl6 = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          thousandSeparator: ' ',
+          initialValue: iterationMap['datatableMap'][6]);
       var datatableMap = {
         'index': iterationMap['datatableMap'][0],
-        'startPrinciple': iterationMap['datatableMap'][1],
-        'startBalance': iterationMap['datatableMap'][2],
-        'interest': iterationMap['datatableMap'][3],
-        'interestAccrued': iterationMap['datatableMap'][4],
-        'endBalance': iterationMap['datatableMap'][5],
-        'endPrinciple': iterationMap['datatableMap'][6],
+        'startPrinciple': ctrl1,
+        'startBalance': ctrl2,
+        'interest': ctrl3,
+        'interestAccrued': ctrl4,
+        'endBalance': ctrl5,
+        'endPrinciple': ctrl6,
       };
       datatableList.add(datatableMap);
     }
