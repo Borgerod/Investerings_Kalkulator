@@ -1,3 +1,8 @@
+import 'dart:math';
+
+import 'package:fl_chart/fl_chart.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -75,6 +80,7 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
                   )),
             ),
           ),
+<<<<<<< Updated upstream
           Padding(
             // padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
             padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
@@ -84,10 +90,25 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
               margin: EdgeInsets.all(5),
               width: 400,
               height: 200,
+=======
+          // Padding(
+          // padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+          // padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+          // padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+          // child:
+          Container(
+              // padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(5),
+              width: 400,
+              height: 400,
+>>>>>>> Stashed changes
               color: colorSection,
-              child: PageView(
-                children: [
+              child:
+                  // PageView(
+                  // children: [
+
                   LineChart(
+<<<<<<< Updated upstream
                     LineChartData(
                       lineTouchData: LineTouchData(
                         touchTooltipData: LineTouchTooltipData(
@@ -142,12 +163,76 @@ class _LineChartDisplayState extends State<LineChartDisplay> {
                             barWidth: 3,
                             color: colorLightBlue)
                       ],
+=======
+                LineChartData(
+                  borderData: FlBorderData(show: true),
+                  titlesData: FlTitlesData(
+                    leftTitles:
+                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles:
+                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  ),
+                  lineTouchData: LineTouchData(
+                    touchSpotThreshold: 50.0,
+                    touchTooltipData: LineTouchTooltipData(
+                      // fitInsideVertically: true,
+                      // fitInsideHorizontally: true,
+                      tooltipBgColor: colorDarkGrayBlue.withOpacity(.5),
+                      getTooltipItems: (List<LineBarSpot> lineBarsSpot) {
+                        return lineBarsSpot.map((lineBarSpot) {
+                          return LineTooltipItem(
+                              '${lineBarSpot.y.toStringAsFixed(2)},-',
+                              TextStyle(color: colorWhite));
+                        }).toList();
+                      },
                     ),
-                  )
-                ],
+                  ),
+                  rangeAnnotations: RangeAnnotations(),
+                  gridData: FlGridData(),
+                  baselineY: 0,
+                  maxY: ((endBalanceSeries.last * 2.2)),
+                  maxX: (endBalanceSeries.length * 1.0),
+                  baselineX: 0,
+                  clipData: FlClipData(
+                      top: true, bottom: false, left: true, right: false),
+                  lineBarsData: [
+                    //* END BALANCE LINE
+                    LineChartBarData(
+                      dotData: FlDotData(
+                        show: false,
+                      ),
+                      spots: balanceData,
+                      isCurved: true,
+                      barWidth: 3,
+                      color: colorSpringGreen,
+>>>>>>> Stashed changes
+                    ),
+                    //* INTEREST LINE
+                    LineChartBarData(
+                        dotData: FlDotData(
+                          show: false,
+                        ),
+                        spots: interestData,
+                        isCurved: true,
+                        barWidth: 3,
+                        color: colorAmber),
+                    //* PRINCIPLE LINE
+                    LineChartBarData(
+                        dotData: FlDotData(
+                          show: false,
+                        ),
+                        spots: principleData,
+                        isCurved: true,
+                        barWidth: 3,
+                        color: Color.fromARGB(255, 67, 138, 86))
+                    // color: colorDarkGreen)
+                  ],
+                ),
+              )
+              // ],
+              // ),
               ),
-            ),
-          ),
+          // ),
         ],
       ),
     );

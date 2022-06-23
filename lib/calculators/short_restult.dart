@@ -13,51 +13,40 @@ class GetResults {
 
     // VALUE OF CONTRIBUTION BEGINNING OF MONTH (BEFORE)
     double extra = (1 + (dividend / periods));
-    double pmtB = pmtA * extra;
 
     // VALUE OF INVESTMENT WITHOUT CONTRIBUTION
     double pv = principle *
         (pow((1 + (dividend / periods)), (periods * timeDeltaInYears)));
 
-    double fva = pv + pmtA;
-    double fvb = pv + pmtB;
-
+    // _____ COMMON ____________________________________________________________
     double startPrinciple = principle;
     double totalContributions =
         additionalContributions * (periods * timeDeltaInYears);
-    double interestAccruedBefore = fvb - startPrinciple - totalContributions;
-    double interestAccruedAfter = fva - startPrinciple - totalContributions;
 
+    // _____ BEFORE ____________________________________________________________
+    double pmtB = pmtA * extra;
+    double fvb = pv + pmtB;
+    double interestAccruedBefore = fvb - startPrinciple - totalContributions;
     double roiB = (fvb - (startPrinciple + totalContributions)) /
-        (startPrinciple + totalContributions) *
-        100;
-    double roiA = (fva - (startPrinciple + totalContributions)) /
         (startPrinciple + totalContributions) *
         100;
     double annualizedRoiB = (pow((fvb / (startPrinciple + totalContributions)),
                 (1 / timeDeltaInYears)) -
             1) *
         100;
+
+    // _____ AFTER _____________________________________________________________
+    double fva = pv + pmtA;
+    double interestAccruedAfter = fva - startPrinciple - totalContributions;
     double annualizedRoiA = (pow((fva / (startPrinciple + totalContributions)),
                 (1 / timeDeltaInYears)) -
             1) *
         100;
-    double totalGrowthBefore = (fvb - (totalContributions + startPrinciple)) /
-        (totalContributions + startPrinciple) *
+    double roiA = (fva - (startPrinciple + totalContributions)) /
+        (startPrinciple + totalContributions) *
         100;
+
     if (beforeAfterVal == 0) {
-      return [
-        fvb,
-        principle,
-        totalContributions,
-        interestAccruedBefore,
-        roiB,
-        annualizedRoiA,
-        totalGrowthBefore,
-        raisedtopower2,
-        dividend,
-      ];
-    } else {
       return [
         fva,
         principle,
@@ -65,6 +54,17 @@ class GetResults {
         interestAccruedAfter,
         roiA,
         annualizedRoiB,
+        raisedtopower2,
+        dividend,
+      ];
+    } else {
+      return [
+        fvb,
+        principle,
+        totalContributions,
+        interestAccruedBefore,
+        roiB,
+        annualizedRoiA,
         raisedtopower2,
         dividend,
       ];

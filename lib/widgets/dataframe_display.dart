@@ -37,8 +37,9 @@ class _DataTableDisplayState extends State<DataTableDisplay> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
+              width: 340,
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 boxShadow: customBoxShadow(),
