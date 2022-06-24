@@ -40,7 +40,8 @@ class _AdFooterState extends State<AdFooter> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
+              // padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               child: FlutterFlowAdBanner(
                 width: 320,
                 height: 50,

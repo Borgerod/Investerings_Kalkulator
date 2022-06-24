@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Learn more about displaying interstitial ads:
 // https://developers.google.com/admob/flutter/interstitial
@@ -65,6 +66,8 @@ Future<bool> showInterstitialAd() async {
     // https://youtu.be/r2RgFD3Apyo?t=188
     return true;
   }
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  await preferences.clear();
   final completer = Completer<bool>();
   _interstitialAd.fullScreenContentCallback = FullScreenContentCallback(
     onAdDismissedFullScreenContent: (InterstitialAd ad) {

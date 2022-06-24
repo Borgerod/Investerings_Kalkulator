@@ -33,7 +33,7 @@ class _InputFormState extends State<InputForm> {
             color: colorWhite,
             boxShadow: customBoxShadow(),
           ),
-          child: titleGreyBig('investering'),
+          child: titleGreyBig('Investering'),
         ),
         // BODY
         Container(
@@ -72,7 +72,7 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('antall år', 'år', 7.0),
+                  decoration: inputDecor('Antall år', 'år', 7.0),
                   controller: _ctrl2,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
@@ -91,7 +91,7 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('perioder *', 'ant', 0.0),
+                  decoration: inputDecor('Perioder *', 'ant', 0.0),
                   controller: _ctrl3,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
@@ -110,7 +110,7 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('dividende', '%', 7.0),
+                  decoration: inputDecor('Årlig dividende', '%', 7.0),
                   controller: controller4,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),
@@ -130,7 +130,7 @@ class _InputFormState extends State<InputForm> {
               TextFormField(
                   style: TextStyle(color: colorCharcoal),
                   textAlign: TextAlign.end,
-                  decoration: inputDecor('tilleggsbidrag', 'kr', 7.0),
+                  decoration: inputDecor('Tilleggsbidrag', 'kr', 7.0),
                   controller: controller5,
                   keyboardType: const TextInputType.numberWithOptions(
                       decimal: true, signed: false),

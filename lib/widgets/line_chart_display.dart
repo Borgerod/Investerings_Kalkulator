@@ -263,7 +263,7 @@ class _LineChartHeaderState extends State<LineChartHeader> {
               boxShadow: customBoxShadow(),
             ),
             child: Text(
-              'Graf',
+              'Utvikling',
               textAlign: TextAlign.center,
               style: TextStyle(color: colorHeadline, fontSize: 30),
             )),

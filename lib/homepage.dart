@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
 import 'package:investerings_kalkulator/widgets/dataframe_display.dart';
 import 'package:investerings_kalkulator/widgets/google_ad_banners.dart';
@@ -17,31 +16,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // BannerAd _bannerAd;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _initBannerAd();
-  // }
-//
-  // _initBannerAd() {
-  //   _bannerAd = BannerAd(
-  //     size: AdSize.banner,
-//
-  //     adUnitId: 'ca-app-pub-5221781377408365~9157295323',
-  //     // adUnitId: 'ca-app-pub-5221781377408365/2391796173',
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (ad) {
-  //         setState(() {});
-  //       },
-  //       onAdFailedToLoad: (ad, error) {},
-  //     ),
-  //     request: AdRequest(),
-  //   );
-  //   _bannerAd.load();
-  //   MobileAds.instance.initialize();
-  // }
-
   String iOSAdUnitIdBig = 'ca-app-pub-5221781377408365/4288112022';
   String androidAdUnitIdBig = 'ca-app-pub-5221781377408365/7419626107';
   String iOSAdUnitIdSmall = 'ca-app-pub-5221781377408365/6095754389';
