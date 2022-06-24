@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:investerings_kalkulator/config.dart';
 import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
 import 'package:investerings_kalkulator/widgets/dataframe_display.dart';
 import 'package:investerings_kalkulator/widgets/google_ad_banners.dart';
@@ -16,10 +17,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String iOSAdUnitIdBig = 'ca-app-pub-5221781377408365/4288112022';
-  String androidAdUnitIdBig = 'ca-app-pub-5221781377408365/7419626107';
-  String iOSAdUnitIdSmall = 'ca-app-pub-5221781377408365/6095754389';
-  String androidAdUnitIdSmall = 'ca-app-pub-5221781377408365/2591886975';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
