@@ -46,32 +46,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(height: 30),
                     ResultDisplay(),
                     SizedBox(height: 30),
-                    // FlutterFlowAdBanner(
-                    //     width: 320,
-                    //     height: 100,
-                    //     showsTestAd: false,
-                    //     iOSAdUnitID: iOSAdUnitIdSmall,
-                    //     androidAdUnitID: androidAdUnitIdSmall),
+                    FlutterFlowAdBanner(
+                        width: 320,
+                        height: 100,
+                        showsTestAd: false,
+                        iOSAdUnitID: iOSAdUnitIdSmall,
+                        androidAdUnitID: androidAdUnitIdSmall),
                     SizedBox(height: 30),
                     PieChartDisplay(),
                     SizedBox(height: 30),
                     LineChartDisplay(),
                     SizedBox(height: 30),
-                    // FlutterFlowAdBanner(
-                    //     width: 320,
-                    //     height: 50,
-                    //     showsTestAd: false,
-                    //     iOSAdUnitID: iOSAdUnitIdSmall,
-                    //     androidAdUnitID: androidAdUnitIdSmall),
+                    FlutterFlowAdBanner(
+                        width: 320,
+                        height: 50,
+                        showsTestAd: false,
+                        iOSAdUnitID: iOSAdUnitIdSmall,
+                        androidAdUnitID: androidAdUnitIdSmall),
                     SizedBox(height: 30),
                     DataTableDisplay(),
                     SizedBox(height: 30),
-                    // FlutterFlowAdBanner(
-                    //     width: 320,
-                    //     height: 100,
-                    //     showsTestAd: false,
-                    //     iOSAdUnitID: iOSAdUnitIdSmall,
-                    //     androidAdUnitID: androidAdUnitIdSmall),
+                    FlutterFlowAdBanner(
+                        width: 320,
+                        height: 100,
+                        showsTestAd: false,
+                        iOSAdUnitID: iOSAdUnitIdSmall,
+                        androidAdUnitID: androidAdUnitIdSmall),
                     SizedBox(height: 100),
                   ],
                 ),
@@ -89,7 +89,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-// , iOSAdUnitID: iOSAdUnitIdBig, androidAdUnitID: androidAdUnitIdBig
-
-// , iOSAdUnitID: iOSAdUnitIdSmall, androidAdUnitID: androidAdUnitIdSmall

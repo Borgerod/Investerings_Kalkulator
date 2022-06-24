@@ -64,3 +64,15 @@ var indicator3 = Container(
   height: 5,
   color: colorHazyGreen,
 );
+
+var indicator4 = Container(
+  width: 5,
+  height: 5,
+  color: colorLightBlue,
+);
+
+var indicator5 = Container(
+  width: 5,
+  height: 5,
+  color: colorSpringGreen,
+);

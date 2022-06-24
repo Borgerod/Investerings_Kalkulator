@@ -49,8 +49,7 @@ class _LineChartLegendState extends State<LineChartLegend> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
-      // height: 60,
+      padding: EdgeInsets.fromLTRB(0, 0, 50, 0),
       width: 300,
       color: colorSection,
       child: Row(
@@ -62,12 +61,12 @@ class _LineChartLegendState extends State<LineChartLegend> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'Tilleggsbidrag',
+                'Balanse',
                 textAlign: TextAlign.left,
                 style: TextStyle(color: colorTextblack),
               ),
               SizedBox(width: 10),
-              indicator2,
+              indicator5,
             ],
           ),
 
@@ -83,7 +82,6 @@ class _LineChartLegendState extends State<LineChartLegend> {
               ),
               SizedBox(width: 10),
               indicator1,
-              // indicator3
             ],
           ),
 
@@ -93,12 +91,12 @@ class _LineChartLegendState extends State<LineChartLegend> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Startsum',
+                'Prinsipp',
                 textAlign: TextAlign.left,
                 style: TextStyle(color: colorTextblack),
               ),
               SizedBox(width: 10),
-              indicator3,
+              indicator2,
             ],
           ),
         ],
@@ -216,7 +214,8 @@ class _LineChartBuilderState extends State<LineChartBuilder> {
                 spots: principleData,
                 isCurved: true,
                 barWidth: 3,
-                color: colorLightBlue)
+                color: colorDarkGreen)
+            // color: colorLightBlue)
           ],
         ),
       ),

@@ -14,11 +14,8 @@ class InputForm extends StatefulWidget {
 }
 
 class _InputFormState extends State<InputForm> {
-  TextEditingController _ctrl1 = TextEditingController(),
-      _ctrl2 = TextEditingController(),
-      _ctrl3 = TextEditingController(),
-      _ctrl4 = TextEditingController(),
-      _ctrl5 = TextEditingController();
+  TextEditingController _ctrl2 = TextEditingController(),
+      _ctrl3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
