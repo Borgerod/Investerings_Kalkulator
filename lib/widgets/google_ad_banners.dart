@@ -1,14 +1,23 @@
-// import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
-// import 'package:investerings_kalkulator/homepage.dart';
-// import 'flutter_flow/flutter_flow_ad_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
+import 'package:investerings_kalkulator/utilities/color_variables.dart';
 
 //* ___________ FOOTER AD BANNER _______________________________________________
 class AdFooter extends StatefulWidget {
-  const AdFooter({Key key}) : super(key: key);
-
+  const AdFooter(
+      {Key key,
+      @required this.showsTestAd,
+      this.width,
+      this.height,
+      this.iOSAdUnitID,
+      this.androidAdUnitID})
+      : super(key: key);
+  final double width;
+  final double height;
+  final bool showsTestAd;
+  final String iOSAdUnitID;
+  final String androidAdUnitID;
   @override
   _AdFooterState createState() => _AdFooterState();
 }
@@ -23,7 +32,7 @@ class _AdFooterState extends State<AdFooter> {
         width: MediaQuery.of(context).size.width,
         height: 90,
         decoration: BoxDecoration(
-          color: Color(0xA9C4C4C4),
+          color: colorFooter,
           shape: BoxShape.rectangle,
         ),
         alignment: AlignmentDirectional(0, 0),
@@ -35,7 +44,7 @@ class _AdFooterState extends State<AdFooter> {
               child: FlutterFlowAdBanner(
                 width: 320,
                 height: 50,
-                showsTestAd: true,
+                showsTestAd: widget.showsTestAd,
               ),
             ),
           ],
@@ -47,8 +56,19 @@ class _AdFooterState extends State<AdFooter> {
 
 //* ___________ AD BANNER [MULIG IKKE I BRUK] __________________________________
 class AdBanner extends StatefulWidget {
-  const AdBanner({Key key}) : super(key: key);
-
+  const AdBanner(
+      {Key key,
+      @required this.showsTestAd,
+      this.width,
+      this.height,
+      this.iOSAdUnitID,
+      this.androidAdUnitID})
+      : super(key: key);
+  final double width;
+  final double height;
+  final bool showsTestAd;
+  final String iOSAdUnitID;
+  final String androidAdUnitID;
   @override
   _AdBannerState createState() => _AdBannerState();
 }
@@ -59,7 +79,7 @@ class _AdBannerState extends State<AdBanner> {
     return FlutterFlowAdBanner(
       width: 320,
       height: 50,
-      showsTestAd: true,
+      showsTestAd: widget.showsTestAd,
     );
   }
 }

@@ -13,6 +13,7 @@ var colorWhite = Color.fromARGB(255, 255, 255, 255);
 var colorSection = Color.fromARGB(255, 242, 242, 241);
 var colorLegend = Color.fromARGB(213, 95, 95, 95);
 var colorLightBackgroundGray = CupertinoColors.lightBackgroundGray;
+var colorFooter = Color(0xA9C4C4C4);
 // var colorShadow = Color.fromARGB(255, 242, 242, 241);
 // var colorShadow = const Color.fromARGB(17, 0, 0, 0).withOpacity(0.5);
 var colorShadow = Color.fromARGB(5, 141, 141, 141).withOpacity(0.5);

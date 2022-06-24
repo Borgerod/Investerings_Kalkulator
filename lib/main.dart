@@ -4,8 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/homepage.dart';
 
-// DESKTOP-ANQ9GM5
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());

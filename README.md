@@ -144,7 +144,8 @@ ________________________________________________________________________________
 ###### ___ BUGS & ERRORS __________
   - [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
   - [ ]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
-  - [ ]  WARNIGN     -> {Adroind Studio}       Warning: Mapping new ns "http://schemas.android.com/.../android/common/01"  
+  - [ ]  WARNING     -> {Adroind Studio}       Warning: Mapping new ns "http://schemas.android.com/.../android/common/01"  
+        - solution: https://stackoverflow.com/questions/68600352/build-warning-mapping-new-ns-to-old-ns
   - [ ]  FAILIUE     -> {Adroind Studio}       FAILURE: Build failed with an exception.
 
 <!-- FAILURE: Build failed with an exception.

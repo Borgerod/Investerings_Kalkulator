@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// import 'package:investerings_kalkulator/flutter_flow/flutter_flow_util.dart';
 import 'package:investerings_kalkulator/utilities/color_variables.dart';
 import 'package:provider/provider.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/utilities/custom_texts.dart';
 import 'package:investerings_kalkulator/utilities/custom_box_shadow.dart';
 import 'package:investerings_kalkulator/utilities/number_formatter.dart';
-// import 'package:flutter/services.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:intl/intl.dart';
 
 //* ___________ INPUT FORM _____________________________________________________
 class InputForm extends StatefulWidget {
