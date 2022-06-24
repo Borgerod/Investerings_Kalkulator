@@ -17,30 +17,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  BannerAd _bannerAd;
-  @override
-  void initState() {
-    super.initState();
-    _initBannerAd();
-  }
-
-  _initBannerAd() {
-    _bannerAd = BannerAd(
-      size: AdSize.banner,
-
-      adUnitId: 'ca-app-pub-5221781377408365~9157295323',
-      // adUnitId: 'ca-app-pub-5221781377408365/2391796173',
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          setState(() {});
-        },
-        onAdFailedToLoad: (ad, error) {},
-      ),
-      request: AdRequest(),
-    );
-    _bannerAd.load();
-    MobileAds.instance.initialize();
-  }
+  // BannerAd _bannerAd;
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _initBannerAd();
+  // }
+//
+  // _initBannerAd() {
+  //   _bannerAd = BannerAd(
+  //     size: AdSize.banner,
+//
+  //     adUnitId: 'ca-app-pub-5221781377408365~9157295323',
+  //     // adUnitId: 'ca-app-pub-5221781377408365/2391796173',
+  //     listener: BannerAdListener(
+  //       onAdLoaded: (ad) {
+  //         setState(() {});
+  //       },
+  //       onAdFailedToLoad: (ad, error) {},
+  //     ),
+  //     request: AdRequest(),
+  //   );
+  //   _bannerAd.load();
+  //   MobileAds.instance.initialize();
+  // }
 
   String iOSAdUnitIdBig = 'ca-app-pub-5221781377408365/4288112022';
   String androidAdUnitIdBig = 'ca-app-pub-5221781377408365/7419626107';
@@ -116,7 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// , iOSAdUnitID: iOSAdUnitIdBig, androidAdUnitID: androidAdUnitIdBig
 
-// , iOSAdUnitID: iOSAdUnitIdBig, androidAdUnitID: androidAdUnitIdBig 
-
-// , iOSAdUnitID: iOSAdUnitIdSmall, androidAdUnitID: androidAdUnitIdSmall 
+// , iOSAdUnitID: iOSAdUnitIdSmall, androidAdUnitID: androidAdUnitIdSmall
