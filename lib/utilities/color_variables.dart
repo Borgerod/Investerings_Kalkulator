@@ -24,7 +24,8 @@ var colorDarkGreen = Color.fromARGB(255, 82, 103, 79);
 var colorGray = Color.fromARGB(255, 233, 233, 233);
 var colorLightBlue = Color.fromARGB(255, 104, 167, 227);
 var colorAmber = Colors.amber[600];
-
+// var colorBackground2 = Color.fromARGB(255, 226, 238, 221);
+var colorBackground2 = Color.fromRGBO(237, 247, 238, 100);
 // //* ,style: TextStyle(color: colorTextblack)
 // //* DarkMode
 // var colorBackground = Color.fromARGB(255, 46, 46, 46);

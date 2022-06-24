@@ -137,9 +137,10 @@ ________________________________________________________________________________
 
 ### ___ PRELAUNCH HIGH PRIO ______________________
 ###### ___ CHANGE & ADD __________
-  - [ ]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
-  - [ ]  ENDRE       -> {InputForm}            Legg til nummer formattering 
-  - [ ]  LEGG TIL    -> {LineChart}            Legg til Legend til kurvene 
+  - [X]  ENDRE       -> {ResultDisplay}        Legg til nummer formattering 
+  - [X]  ENDRE       -> {InputForm}            Legg til nummer formattering 
+  - [X]  LEGG TIL    -> {LineChart}            Legg til Legend til kurvene 
+  - [ ]  LEGG TIL    -> {App Icon}             Lag og legg til en App Icon
 
 ###### ___ BUGS & ERRORS __________
   - [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]

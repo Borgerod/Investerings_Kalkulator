@@ -17,7 +17,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: colorWhite,
+          color: Color.fromRGBO(237, 247, 238, 1),
           borderRadius: BorderRadius.circular(5.0),
         ),
         alignment: Alignment.center,

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/homepage.dart';
+import 'package:flutter_svg/avd.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       child: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background5.png"),
+                image: AssetImage("assets/images/background7.png"),
                 fit: BoxFit.fitWidth)),
         child: MultiProvider(
           providers: [
@@ -64,3 +66,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+
+// final String assetName = 'assets/up_arrow.svg';
+// final Widget svgIcon = SvgPicture.asset(
+//   assetName,
+//   color: Colors.red,
+//   semanticsLabel: 'A red up arrow'
+// );
