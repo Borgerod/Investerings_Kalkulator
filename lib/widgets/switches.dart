@@ -46,7 +46,7 @@ class _BeforAfterSwitchState extends State<BeforAfterSwitch> {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: colorWhite,
+          color: colorBackground2,
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: Row(

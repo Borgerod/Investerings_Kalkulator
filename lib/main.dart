@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
 import 'package:investerings_kalkulator/homepage.dart';
-import 'package:flutter_svg/avd.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/avd.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:investerings_kalkulator/config.dart';
 import 'package:investerings_kalkulator/flutter_flow/flutter_flow_ad_banner.dart';
 import 'package:investerings_kalkulator/utilities/color_variables.dart';
 
@@ -44,10 +45,11 @@ class _AdFooterState extends State<AdFooter> {
               // padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 30),
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
               child: FlutterFlowAdBanner(
-                width: 320,
-                height: 50,
-                showsTestAd: widget.showsTestAd,
-              ),
+                  width: 320,
+                  height: 50,
+                  showsTestAd: false,
+                  iOSAdUnitID: iOSAdUnitIdSmall,
+                  androidAdUnitID: androidAdUnitIdSmall),
             ),
           ],
         ),

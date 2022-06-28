@@ -1,0 +1,29 @@
+Investerings kalkulatoren, er en enkel måte å regne ut den potensielle gevinsten i en investering.
+Appen har et rent og moderne design, med en høy brukervennelighet der all informasjonen ligger ryddig og tilgjengelig for deg når som helst. 
+Investerings kalkulatoren vil lynraskt gi deg et utfyllende resultat, der av; totale innskudd, totalt dividende, totalt- og annualisert utbytte. 
+I tillegg får du viualisert insiktsrikt data med en rekke diagrammer og grafer om blant annet; 
+investeringens innhold, og hvordan investeringen utvikler seg gjennom dens planlagte levetid, og til slutt vil den bygge en tabell av kontantstrømmen for deg. 
+
+Vi står for brukeropplevelse, så i Investering Kalkulatoren vår vil du få en app som:
+- Ikke krever at du oppretter en konto.
+- Ikke krever at du er tilkoblet internett.
+- Ikke krever betalinger.
+Appen er helt gratis, der all inntekten kommer fra noen små reklame annonser. 
+
+Hvordan bruker man appen:
+Modellen er bygget på sammensatt renteformel men som også inkluderer tilleggsbidrag og hvor du selv kan justere når rentene/avkastningen skal innbetales hver periode.  
+Alt du trenger å gjøre er å fylle inn:
+    [Startsum] Summen du planlegger å starte investeringen med. 
+    [Antall år] lengden på investeringens levetid i antall år.
+    [Perioder] Hvor mange ganger du planlegger å gjøre innskudd (tilleggsbidrag) og få utbetalt utbytte (dividende) HVERT ÅR. 
+               Eksempelvis vil 12 perioder tilsvare en måntlig betaling.
+    [Årlig dividende] deretter fyller du inn den ÅRLIGE dividenden/utbyttet du forventer å få utbetalt, 
+                      merk at dividenden står som %, der for eksempel "6%" årlig utbytte skal da fylles inn som "6,00",
+    [tilleggsbidrag] Det siste du trenger å fylle inn er hvor mye du ønsker å betale i innskudd hver PERIODE, 
+                     om du ikke ønsker å betale tilleggsbidrag kan du la dette feltet være eller skrive "0".
+    
+    Til slutt trenger du å avgjøre om tilleggsbidragene skal betales på starten eller på slutten av hver periode, 
+    altså om dividenden skal regne med tilleggsbidraget fra første periode eller om den skal vente til neste periode før den regner meg innskuddet. 
+
+
+Fortell oss hva du synes om appen og kom gjerne med tilbakemeldinger om det er noe du føler du savner noen funksjoner i appen.  

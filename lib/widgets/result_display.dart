@@ -111,7 +111,7 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                   Text('StartSum: ',
                                       style: TextStyle(
                                           color: colorTextblack, fontSize: 16)),
-                                  Text('Totale tilskudd: ',
+                                  Text('Totale innskudd: ',
                                       style: TextStyle(
                                           color: colorTextblack, fontSize: 16)),
                                   Text('Total Dividende:',
@@ -168,7 +168,7 @@ class _ResultDisplayState extends State<ResultDisplay> {
                                               color: colorWhite, fontSize: 20),
                                         ),
                                         Text(
-                                          'Annualiset utbytte: ',
+                                          'Annualisert utbytte: ',
                                           textAlign: TextAlign.start,
                                           style: TextStyle(
                                               color: colorWhite, fontSize: 20),
