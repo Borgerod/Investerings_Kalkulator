@@ -144,10 +144,10 @@ ________________________________________________________________________________
 
 ###### ___ BUGS & ERRORS __________
   - [ ]  ERROR       -> {GoogleAdsBanner}      Fix error som blir raised ved reload - ["ads for adKey already exsists"]
-  - [ ]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
+  - [X]  EXT ERROR   -> {Adroind Studio}       Del problemer med AVD'ne => iht launching, fix dette. 
   - [ ]  WARNING     -> {Adroind Studio}       Warning: Mapping new ns "http://schemas.android.com/.../android/common/01"  
         - solution: https://stackoverflow.com/questions/68600352/build-warning-mapping-new-ns-to-old-ns
-  - [ ]  FAILIUE     -> {Adroind Studio}       FAILURE: Build failed with an exception.
+  - [X]  FAILIUE     -> {Adroind Studio}       FAILURE: Build failed with an exception.
 
 <!-- FAILURE: Build failed with an exception.
 
@@ -168,3 +168,10 @@ Run with --stacktrace option to get the stack trace. Run with --info or --debug 
   - [ ]   LEGG TIL    -> {BackToTop}   [BUTTON]  knapp som tar deg tilbake til topp, evt tilbake til toppen av dataframet. 
   - [ ]   ENDRE       -> {BackToTop}   [BUTTON]  Gjerne sørg for at knappen er sticky etter du passerer dataframet. 
   - [ ]   ENDRE       -> {Container}             Nederste containerne er hevet "over" den forje, skal være "under"           
+
+
+### ___ POSTLAUNCH PRIO ________________________
+- [ ]  ENDRE       -> {GoogleAds}       Google ads vil ikke loade. mulige grunner; ingen async, for få ad keys. 
+- [ ]  ENDRE       -> {keyboard}        keyboard vil ikke forsvinne 
+- [ ]  ENDRE       -> {dataframe}       må fortsatt fiske på indexen
+- [ ]  ENDRE       -> {Playstore}       Finner ikke appen i playstore, sjekk dette. 

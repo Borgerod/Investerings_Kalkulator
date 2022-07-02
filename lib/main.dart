@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:investerings_kalkulator/state_provider.dart';
@@ -8,8 +9,11 @@ import 'package:investerings_kalkulator/homepage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(MyApp());
 }
+
+const int maxAttempts = 3;
 
 class MyApp extends StatefulWidget {
   @override
@@ -20,6 +24,53 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  // BannerAd staticAd;
+  // // late BannerAd staticAd;
+  // bool staticAdLoaded = false;
+  // BannerAd inlineAd;
+  // // late BannerAd inlineAd;
+  // bool inlineAdLoaded = false;
+
+  // static const AdRequest request = AdRequest(
+  //   // keywords: ['',''],
+  //   // contentUrl: [''],
+  //   nonPersonalizedAds: false,
+  // );
+
+  // void laodStaticBannerAd() {
+  //   staticAd = BannerAd(
+  //     size: AdSize.banner,
+  //     adUnitId: BannerAd.testAdUnitId,
+  //     request: request,
+  //     listener: BannerAdListener(onAdLoaded: (ad) {
+  //       setState(() {
+  //         staticAdLoaded = true;
+  //       });
+  //     }, onAdFailedToLoad: (ad, error) {
+  //       ad.dispose();
+  //       print("ad failed to load  ${error.message}");
+  //     }),
+  //   );
+  //   staticAd.load();
+  // }
+
+  // void laodInlineBannerAd() {
+  //   inlineAd = BannerAd(
+  //     size: AdSize.banner,
+  //     adUnitId: BannerAd.testAdUnitId,
+  //     request: request,
+  //     listener: BannerAdListener(onAdLoaded: (ad) {
+  //       setState(() {
+  //         inlineAdLoaded = true;
+  //       });
+  //     }, onAdFailedToLoad: (ad, error) {
+  //       ad.dispose();
+  //       print("ad failed to load  ${error.message}");
+  //     }),
+  //   );
+  //   inlineAd.load();
+  // }
+
   Locale _locale;
 
   void setLocale(Locale value) => setState(() => _locale = value);

@@ -70,21 +70,6 @@ class _LineChartLegendState extends State<LineChartLegend> {
             ],
           ),
 
-          // DIVIDENDE
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Dividende',
-                textAlign: TextAlign.left,
-                style: TextStyle(color: colorTextblack),
-              ),
-              SizedBox(width: 10),
-              indicator1,
-            ],
-          ),
-
           // STARTSUM
           SizedBox(height: 10),
           Row(
@@ -97,6 +82,21 @@ class _LineChartLegendState extends State<LineChartLegend> {
               ),
               SizedBox(width: 10),
               indicator2,
+            ],
+          ),
+
+          // DIVIDENDE
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Dividende',
+                textAlign: TextAlign.left,
+                style: TextStyle(color: colorTextblack),
+              ),
+              SizedBox(width: 10),
+              indicator1,
             ],
           ),
         ],

@@ -83,16 +83,14 @@ class BuildMap {
   List<DataColumn> _createColumns() {
     return [
       DataColumn(
-        label: SizedBox(
-          width: 50,
-          child: Text(
-            'termin',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: colorTextblack),
-          ),
-        ),
-      ),
+          label: SizedBox(
+              width: 60,
+              child: Text(
+                'termin',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: colorTextblack),
+              ))),
       DataColumn(
           label: SizedBox(
               width: 60,
