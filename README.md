@@ -1,6 +1,16 @@
 # Investerings_Kalkulator
 Investment Calculator - iOS &amp; Android app - Built w/ Flutter (ui, norwegian) &amp; Python (back-end, english).
 
+## Summary
+- Project:        Private
+- Job Completed:  June 2022
+- Job type:				Development 
+- Job categogy:		Mobile Application, cross platform, Financial calculator
+- Language:				Dart
+- Style:          OOP
+
+
+
 ## Extensive Description
 
   "Investerings Kalkulator" or "The Investment Calculator" is an mobile app (iOS & Android).
